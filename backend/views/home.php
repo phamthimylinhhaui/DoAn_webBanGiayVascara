@@ -16,7 +16,7 @@
                                             <i class="far fa-user"></i>
                                         </span>
                     <div class="dash-widget-info">
-                        <h3>2</h3>
+                        <h3><?php echo $amount_user;?></h3>
                         <h6 class="text-muted">Người dùng</h6>
                     </div>
                 </div>

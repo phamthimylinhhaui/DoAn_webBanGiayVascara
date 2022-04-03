@@ -7,9 +7,47 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $this->title; ?></title>
     <?php require_once "views/layouts/css.php"?>
-
+    <style>
+        body{
+            font-family: "Times New Roman";
+            font-size: 18px;
+        }
+    </style>
 </head>
 <body>
+    <div class="message-wrap content-wrap content-wrapper">
+    <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <?php if (isset($_SESSION['error'])): ?>
+                <div class="alert alert-danger">
+                    <?php
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                    ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (!empty($this->error)): ?>
+                <div class="alert alert-danger">
+                    <?php
+                    echo $this->error;
+                    ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if (isset($_SESSION['success'])): ?>
+                <div class="alert alert-success">
+                    <?php
+                    echo $_SESSION['success'];
+                    unset($_SESSION['success']);
+                    ?>
+                </div>
+            <?php endif; ?>
+            <!--        <div class="alert alert-danger">Lỗi validate</div>-->
+            <!--        <p class="alert alert-success">Thành công</p>-->
+        </section>
+    </div>
+
     <div class="main-wrapper">
         <!-- Header -->
         <div class="header">

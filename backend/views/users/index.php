@@ -2,7 +2,9 @@
 <div class="page-header">
     <div class="row">
         <div class="col">
-            <h3 class="page-title">Quản lý tài khoản</h3>
+            <h3 class="page-title">Quản lý tài khoản
+
+            </h3>
         </div>
         <div class="col-auto text-right">
             <a href="index.php?controller=home&action=index"
@@ -23,55 +25,106 @@
 </div>
 <!-- End alert -->
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-hover table-center mb-0 datatable">
-                        <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Tên</th>
-                            <th>Email</th>
-                            <th>SĐT</th>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary create-user" data-toggle="modal" data-target="#create-user" onclick="showFormCreateUser();">
+    Thêm mới
+</button>
+<!-- Modal -->
+<div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content create-user">
 
-                            <th>Địa chỉ</th>
-                            <th>Trạng thái</th>
-                            <th>Quyền</th>
-
-                            <th class="text-right">Hành động</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>2</td>
-                            <td>Họ Và Tên</td>
-                            <td><a href="mailto:nhom2user@gmail.com">Email.com.vn</a></td>
-                            <td>0866136920</td>
-
-                            <td>Địa chỉ</td>
-                            <td><label>Đã kích hoạt</label></td>
-                            <td><label>Người dùng</label></td>
-
-                            <td class="text-right">
-                                <a href="/admin/ManageAccount/Update?id=2"
-                                   class="btn btn-sm bg-success-light mr-2">
-                                    <i class="far fa-edit mr-1"></i> Sửa
-                                </a>
-                                <a data-id="40"
-                                   href="javascript:void(0);"
-                                   class="btn btn-sm bg-danger-light mr-2 delete_review_comment">
-                                    <i class="far fa-trash-alt mr-1"></i> Xoá
-                                </a>
-                            </td>
-                        </tr>
-
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
     </div>
 </div>
+
+<table class="table users-table table-hover" id="list-users">
+    <thead>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Ảnh đại diện
+        </th>
+        <th>
+            <input type="text" class="form-control" placeholder="Tên người dùng">
+        </th>
+        <th>
+            <input type="text" class="form-control" placeholder="Tên tài khoản">
+        </th>
+        <th>
+            <input type="text" class="form-control" placeholder="Ngày sinh">
+        </th>
+        <th>
+            <input type="text" class="form-control" placeholder="Liên hệ">
+        </th>
+        <th>
+            Tùy chọn
+        </th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <?php
+//    echo "<pre>";
+//    print_r($users);
+//    echo "</pre>";
+    foreach($users as $user){
+
+        ?>
+
+        <tr id="user-row-<?php echo $user['id']; ?>">
+            <td>
+                <?php echo $user['id'];?>
+            </td>
+
+            <td>
+                <img src="<?php
+                if (isset($user['avatar']))
+                echo $user['avatar'];?>" class="avatar">
+            </td>
+
+            <td>
+                <?php echo $user['last_name'];?>
+            </td>
+
+            <td>
+                <?php echo $user['username'];?>
+            </td>
+
+            <td>
+                <?php if (isset($user['date_of_birth'])) echo $user['date_of_birth'];?>
+            </td>
+
+            <td>
+                <?php if (isset($user['phone'])) echo $user['phone'];?>
+            </td>
+
+            <td>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"
+                        onclick="showFormEdit(<?php echo $user->id; ?>)">
+                    Sửa
+                </button>
+
+                <button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo $user->id; ?>)">
+                    Xóa
+                </button>
+
+            </td>
+        </tr>
+    <?php }?>
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+        </div>
+    </div>
+</div>
+
+
+

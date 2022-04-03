@@ -1,11 +1,16 @@
 <?php
 require_once "controllers/Controller.php";
+require_once "models/User.php";
 
 class UserController extends Controller
 {
     public function index(){
-
-        $this->content=$this->render('views/users/index.php');
+        $user_model= new User();
+        $users= $user_model->getAll();
+//        echo "<pre>";
+//        print_r($users);
+//        echo "</pre>";
+        $this->content=$this->render('views/users/index.php',['users' =>$users]);
         $this->title="trang quản lý tài khoản";
 
         require_once "views/layouts/main.php";

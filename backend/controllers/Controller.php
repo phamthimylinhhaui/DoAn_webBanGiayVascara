@@ -11,7 +11,7 @@ class Controller
     {
     }
 
-    public function render($file,$variables = []){
+    public function render($file,$variables = array()){
         //giải nén biến
         extract($variables);
 
