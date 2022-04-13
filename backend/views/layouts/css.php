@@ -19,3 +19,18 @@
 <!-- Main CSS -->
 <link rel="stylesheet" href="assets/css/admin.css" />
 <link href="assets/css/toastr.css" rel="stylesheet" />
+
+<!-- user -->
+<style>
+    .pagination{
+        margin: 10px auto;
+    }
+    .pagination > li > a, .pagination > li > span {
+        margin: 12px;
+        padding: 12px;
+        color: #f15b67;
+        border: 1px;
+        border-style: solid;
+        text-align: center;
+    }
+</style>

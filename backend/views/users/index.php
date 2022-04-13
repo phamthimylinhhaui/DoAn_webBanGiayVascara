@@ -101,8 +101,8 @@
                 <?php if (isset($user['phone'])) echo $user['phone'];?>
             </td>
 
-            <td>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"
+            <td >
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#edit-user"
                         onclick="showFormEdit(<?php echo $user->id; ?>)">
                     Sửa
                 </button>
@@ -113,7 +113,12 @@
 
             </td>
         </tr>
+
     <?php }?>
+    <tr>
+        <td colspan="7" ><?php echo $pages; ?></td>
+    </tr>
+
     </tbody>
 </table>
 
