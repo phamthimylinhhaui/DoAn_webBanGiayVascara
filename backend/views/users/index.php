@@ -6,12 +6,13 @@
 
             </h3>
         </div>
-        <div class="col-auto text-right">
-            <a href="index.php?controller=home&action=index"
-               class="btn btn-primary ml-3">
-                <i class="fas fa-plus"></i> Thêm tài khoản
-            </a>
-        </div>
+
+        <!-- Button trigger modal
+        data-target="#create-user" của button phải merge với id của modal content
+        -->
+        <button type="button" class="btn btn-primary create-user" data-toggle="modal" data-target="#create-user" onclick="showFormCreate()">
+            Thêm mới
+        </button>
     </div>
 </div>
 <!-- /Page Header -->
@@ -25,13 +26,9 @@
 </div>
 <!-- End alert -->
 
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary create-user" data-toggle="modal" data-target="#create-user" onclick="showFormCreateUser();">
-    Thêm mới
-</button>
-<!-- Modal -->
-<div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+<!-- Modal show form create user-->
+<div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content create-user">
 
         </div>
@@ -48,16 +45,16 @@
             Ảnh đại diện
         </th>
         <th>
-            <input type="text" class="form-control" placeholder="Tên người dùng">
+            Tên người dùng
         </th>
         <th>
-            <input type="text" class="form-control" placeholder="Tên tài khoản">
+            Tên tài khoản
         </th>
         <th>
-            <input type="text" class="form-control" placeholder="Ngày sinh">
+            Ngày sinh
         </th>
         <th>
-            <input type="text" class="form-control" placeholder="Liên hệ">
+            Liên hệ
         </th>
         <th>
             Tùy chọn
@@ -80,7 +77,7 @@
             </td>
 
             <td>
-                <img src="<?php
+                <img id="image" src="<?php
                 if (isset($user['avatar']))
                 echo $user['avatar'];?>" class="avatar">
             </td>
@@ -122,14 +119,28 @@
     </tbody>
 </table>
 
-<!-- Modal -->
-<div class="modal fade" id="edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
 
-        </div>
-    </div>
-</div>
+<script>
+    function showFormCreate(){
+        // call ajax
+        $.ajax({
+            url:"index.php?controller=user&action=showFormCreate",
+            type:"POST",
+            //dữ liệu gửi đi
+            data:{
+            },
+            //dữ liệu trả về sau khi gọi
+            success: function (data){
+                if (data.message==undefined){
+                    $('#create-user').find('.create-user').html(data);
+                }
+            },
+            error: function (){
+
+            },
+        });
+    }
+</script>
 
 
 

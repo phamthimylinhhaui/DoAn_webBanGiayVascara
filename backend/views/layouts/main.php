@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><?php echo $this->title; ?></title>
     <?php require_once "views/layouts/css.php"?>
+    <?php require_once "views/users/css.php"?>
     <style>
         body{
             font-family: "Times New Roman";
