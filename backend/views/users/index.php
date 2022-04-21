@@ -29,7 +29,7 @@
 <!-- Modal show form create user-->
 <div class="modal fade" id="create-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content create-user">
+        <div class="modal-content ">
 
         </div>
     </div>
@@ -99,12 +99,13 @@
             </td>
 
             <td >
-                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#edit-user"
-                        onclick="showFormEdit(<?php echo $user->id; ?>)">
+                <!-- Button trigger modal for show-form-edit-user -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"  onclick="showFormEdit(<?php echo $user['id']; ?>)">
                     Sửa
                 </button>
 
-                <button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo $user->id; ?>)">
+
+                <button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo $user['id']; ?>)">
                     Xóa
                 </button>
 
@@ -118,29 +119,18 @@
 
     </tbody>
 </table>
+<!-- Modal for show-form-edit-user -->
+<div class="modal fade" id="edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content edit-user">
 
+        </div>
+    </div>
+</div>
 
-<script>
-    function showFormCreate(){
-        // call ajax
-        $.ajax({
-            url:"index.php?controller=user&action=showFormCreate",
-            type:"POST",
-            //dữ liệu gửi đi
-            data:{
-            },
-            //dữ liệu trả về sau khi gọi
-            success: function (data){
-                if (data.message==undefined){
-                    $('#create-user').find('.create-user').html(data);
-                }
-            },
-            error: function (){
-
-            },
-        });
-    }
-</script>
+<?php
+require_once "views/users/script.php";
+?>
 
 
 

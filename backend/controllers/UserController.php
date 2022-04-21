@@ -59,7 +59,13 @@ class UserController extends Controller
     }
 
     public function showFormCreate(){
-        $this->title="Form thêm mới người dùng";
+        $this->title="Form thêm mới tài khoản";
         require_once "views/users/create.php";
     }
+
+    public function showFormEdit(){
+        $this->title="Form sửa tài khoản";
+        require_once "views/users/edit.php";
+    }
+
 }
