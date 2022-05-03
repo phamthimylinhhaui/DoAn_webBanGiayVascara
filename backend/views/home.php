@@ -2,7 +2,7 @@
 <div class="page-header">
     <div class="row">
         <div class="col-12">
-            <h3 class="page-title">Xin chào ADMIN</h3>
+            <h3 class="page-title">Xin chào Nhân Viên</h3>
         </div>
     </div>
 </div>

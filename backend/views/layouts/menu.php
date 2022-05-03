@@ -12,30 +12,20 @@
                 <li class="active">
                     <a href="index.php?controller=home&action=index"><i class="fas fa-columns"></i> <span>Thống kê</span></a>
                 </li>
+
                 <li class="">
-                    <a href="categories.html">
-                        <i class="fas fa-layer-group"></i>
-                        <span>Quản lý danh mục</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="products.html">
+                    <a href="index.php?controller=order&action=index">
                         <i class="fab fa-buffer"></i>
-                        <span>Quản lý sản phẩm</span>
+                        <span>Quản lý phản hồi</span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="manage-order.html">
+                    <a href="index.php?controller=order&action=index">
                         <i class="fas fa-shopping-cart"></i>
                         <span>Quản lý đơn hàng</span>
                     </a>
                 </li>
-                <li class="">
-                    <a href="index.php?controller=user&action=index">
-                        <i class="fas fa-user"></i>
-                        <span>Quản lý tài khoản </span>
-                    </a>
-                </li>
+
             </ul>
         </div>
     </div>
