@@ -4,6 +4,7 @@ require_once "controllers/Controller.php";
 require_once "models/Order.php";
 class OrderController extends Controller
 {
+
     public function index(){
         $order_model = new Order();
         $orders = $order_model->getAll();
