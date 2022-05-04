@@ -4,9 +4,9 @@
         <div class="col">
             <h3 class="page-title">Quản lý tin tức
         </div>
-        <button type="button" class="btn btn-primary create-user" >
+        <a type="button" class="btn btn-primary create-user" href="index.php?controller=new&action=create" >
             Thêm mới
-        </button>
+        </a>
     </div>
 </div>
 <!-- /Page Header -->

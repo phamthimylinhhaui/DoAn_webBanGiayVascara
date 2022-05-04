@@ -4,9 +4,7 @@
         <div class="col">
             <h3 class="page-title">Quản lý phản hồi
         </div>
-        <button type="button" class="btn btn-primary create-user" >
-            Thêm mới
-        </button>
+
     </div>
 </div>
 <!-- /Page Header -->
@@ -31,9 +29,6 @@
         </th>
         <th>
             Số điện thoại
-        </th>
-        <th>
-            Nội dung
         </th>
         <th>
             Ngày tạo
@@ -67,22 +62,13 @@
             </td>
 
             <td>
-                <?php echo $feedback['content'];?>
-            </td>
-
-            <td>
                 <?php if (isset($feedback['created_at'])) echo $feedback['created_at'];?>
             </td>
 
             <td >
                 <!-- Button trigger modal for show-form-edit-user -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"  onclick="showFormEdit(<?php echo $user['id']; ?>)">
-                    Sửa
-                </button>
-
-
-                <button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo $user['id']; ?>)">
-                    Xóa
+                    xem chi tiết
                 </button>
 
             </td>

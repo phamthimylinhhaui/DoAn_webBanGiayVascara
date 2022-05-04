@@ -51,10 +51,10 @@
             Tên tài khoản
         </th>
         <th>
-            Ngày sinh
+            Phân quyền
         </th>
         <th>
-            Liên hệ
+            Ngày sinh
         </th>
         <th>
             Tùy chọn
@@ -91,11 +91,28 @@
             </td>
 
             <td>
-                <?php if (isset($user['date_of_birth'])) echo $user['date_of_birth'];?>
+                <?php
+                $role='';
+                if ( isset($user['role']) )
+                {
+                    switch ($user['role']) {
+                        case 0:
+                            $role = 'Khách hàng';
+                            break;
+                        case 1:
+                            $role = 'Nhân viên';
+                            break;
+                        case 2:
+                            $role = 'Admin';
+                            break;
+                    }
+                }
+                echo $role;
+                ?>
             </td>
 
             <td>
-                <?php if (isset($user['phone'])) echo $user['phone'];?>
+                <?php if (isset($user['date_of_birth'])) echo $user['date_of_birth'];?>
             </td>
 
             <td >

@@ -3,6 +3,48 @@ require_once 'models/Model.php';
 
 class User extends Model
 {
+    public $id;
+    public $username;
+    public $name;
+    public $password;
+    public $avatar;
+    public $role;
+    public $email;
+    public $phone='';
+    public $date_of_birth='';
+    public $created_at;
+    public $updated_at;
+    public $deleted_at;
+
+    //insert dữ liệu vào bảng categories
+    public function insert() {
+        $sql_insert =
+            "INSERT INTO users(`username`, `password`, `role`, `date_of_birth`, `name`, `email`, `avatar`, `phone`)
+VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :phone)";
+
+        //cbi đối tượng truy vấn
+        $obj_insert = $this->connection
+            ->prepare($sql_insert);
+        //gán giá trị thật cho các placeholder
+        $arr_insert = [
+            ':username' => $this->username,
+            ':password' => $this->password,
+            ':role' => $this->role,
+            ':date_of_birth' => $this->date_of_birth,
+            ':name' => $this->name,
+            ':email' => $this->email,
+            ':avatar' => $this->avatar,
+            ':phone' => $this->phone
+        ];
+
+//                echo "<pre style='margin-top: 150px; margin-left: 300px;'>";
+//                print_r( $arr_insert);
+//                echo "</pre>";
+//                die();
+
+
+        return $obj_insert->execute($arr_insert);
+    }
 
 
     public function countUser(){

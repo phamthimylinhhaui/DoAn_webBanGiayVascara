@@ -5,9 +5,7 @@
             <h3 class="page-title">Quản lý đơn hàng
             </h3>
         </div>
-        <button type="button" class="btn btn-primary create-user" >
-            Thêm mới
-        </button>
+
     </div>
 </div>
 <!-- /Page Header -->
@@ -27,20 +25,12 @@
         <th>
             ID
         </th>
-        <th>
-            ID người dùng
-        </th>
+
         <th>
             Tên người dùng
         </th>
         <th>
-            Địa chỉ
-        </th>
-        <th>
             Số điện thoại
-        </th>
-        <th>
-            Chú ý
         </th>
         <th>
             Tổng
@@ -72,15 +62,7 @@
             </td>
 
             <td>
-                <?php echo $order['user_id'];?>
-            </td>
-
-            <td>
                 <?php echo $order['full_name'];?>
-            </td>
-
-            <td>
-                <?php echo $order['address'];?>
             </td>
 
             <td>
@@ -88,15 +70,25 @@
             </td>
 
             <td>
-                <?php echo $order['note'];?>
-            </td>
-
-            <td>
                 <?php echo $order['price_total'];?>
             </td>
 
             <td>
-                <?php echo $order['payment_status'];?>
+            <?php
+            $status='';
+            if ( isset($order['payment_status']) )
+            {
+                switch ($order['payment_status']) {
+                    case 0:
+                        $status = 'chưa thanh toán';
+                        break;
+                    case 1:
+                        $status = 'đã thanh toán';
+                        break;
+                }
+            }
+            echo $status;
+            ?>
             </td>
 
             <td>
@@ -106,7 +98,7 @@
             <td >
                 <!-- Button trigger modal for show-form-edit-user -->
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"  onclick="showFormEdit(<?php echo $user['id']; ?>)">
-                    Sửa
+                    Chi tiết
                 </button>
 
 

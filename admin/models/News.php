@@ -3,6 +3,35 @@
 require_once 'models/Model.php';
 class News extends Model
 {
+    //khai báo các thuộc tính cho model trùng với các trường của bảng categories
+    public $id;
+    public $title;
+    public $image;
+    public $description;
+    public $username;
+    public $created_at;
+    public $updated_at;
+
+    //insert dữ liệu vào bảng categories
+    public function insert() {
+        $sql_insert =
+            "INSERT INTO news (`title`, `image`, `description`, `username`)
+VALUES (:title, :image, :description, :username)";
+
+        //cbi đối tượng truy vấn
+        $obj_insert = $this->connection
+            ->prepare($sql_insert);
+        //gán giá trị thật cho các placeholder
+        $arr_insert = [
+            ':title' => $this->title,
+            ':image' => $this->image,
+            ':description' => $this->description,
+            ':username' => $this->username
+        ];
+
+        return $obj_insert->execute($arr_insert);
+    }
+
     public function getAll(){
         $obj_select = $this->connection
             ->prepare("SELECT * FROM news ");

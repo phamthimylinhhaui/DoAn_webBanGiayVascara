@@ -5,6 +5,93 @@ require_once 'models/Pagination.php';
 
 class UserController extends Controller
 {
+    public function create(){
+        if (isset($_POST['submit'])) {
+            $username = $_POST['username'];
+            $fullname = $_POST['fullname'];
+            $password = $_POST['password'];
+            $role  = $_POST['role'];
+            $email  = $_POST['email'];
+            $phone  = $_POST['phone'];
+            $date_of_birth  = $_POST['date_of_birth'];
+            $avatar_files = $_FILES['avatar'];
+
+            //check validate
+            if (empty($username)) {
+                $this->error = 'Cần nhập tên tài khoản';
+            }
+            else if (empty($fullname)) {
+                $this->error = 'Cần nhập họ và tên của bạn';
+            }
+            else if (empty($password)) {
+                $this->error = 'Cần nhập mật khẩu';
+            }
+            else if (empty($email)) {
+                $this->error = 'Cần nhập mail';
+            }
+            //trường hợp có ảnh upload lên, thì cần kiểm tra điều kiện là file ảnh
+            else if ($avatar_files['error'] == 0) {
+                $extension_arr = ['jpg', 'jpeg', 'gif', 'png'];
+                $extension = pathinfo($avatar_files['name'], PATHINFO_EXTENSION);
+                $extension = strtolower($extension);
+                $file_size_mb = $avatar_files['size'] / 1024 / 1024;
+                //làm tròn theo đơn vị thập phân
+                $file_size_mb = round($file_size_mb, 2);
+
+                if (!in_array($extension, $extension_arr)) {
+                    $this->error = 'Cần upload file định dạng ảnh';
+                } else if ($file_size_mb >= 2) {
+                    $this->error = 'File upload không được lớn hơn 2Mb';
+                }
+            }
+
+            //nếu ko có lỗi thì tiến hành lưu dữ liệu và upload ảnh nếu có
+            $avatar = '';
+            if (empty($this->error)) {
+                //xử lý upload ảnh nếu có
+                if ($avatar_files['error'] == 0) {
+                    $dir_uploads = 'assets/uploads';
+                    if (!file_exists($dir_uploads)) {
+                        mkdir($dir_uploads);
+                    }
+                    $avatar = time() . '-' . $avatar_files['name'];
+                    move_uploaded_file($avatar_files['tmp_name'], $dir_uploads . '/' . $avatar);
+                }
+                //lưu vào csdl
+                //gọi model để thực  hiện lưu
+                $user_model = new User();
+                //gán các giá trị từ form cho các thuộc tính của category
+                $user_model->username = $username;
+                $user_model->password = $password;
+                $user_model->role = $role;
+                $user_model->date_of_birth = $date_of_birth;
+                $user_model->name = $fullname;
+                $user_model->email = $email;
+                $user_model->avatar = $avatar;
+                $user_model->phone = $phone;
+
+
+                //gọi phương thức insert
+                $is_insert = $user_model->insert();
+
+
+                if ($is_insert) {
+                    $_SESSION['success'] = 'Thêm mới thành công';
+                } else {
+                    $_SESSION['error'] = 'Thêm mới thất bại';
+                }
+                header('Location: index.php?controller=user&action=index');
+                exit();
+            }
+
+        }
+        $this->title="Thêm người dùng mới";
+        //lấy nội dung view create.php
+        $this->content = $this->render('views/users/create.php');
+        //gọi layout để nhúng nội dung view create vừa lấy đc
+        require_once 'views/layouts/main.php';
+
+    }
     public function index(){
         $user_model= new User();
         //do có sử dụng phân trang nên sẽ khai báo mảng các params

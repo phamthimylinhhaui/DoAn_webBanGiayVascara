@@ -33,4 +33,7 @@
         border-style: solid;
         text-align: center;
     }
+    button{
+        margin: 2px !important;
+    }
 </style>

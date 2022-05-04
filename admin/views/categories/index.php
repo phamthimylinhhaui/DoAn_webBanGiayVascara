@@ -5,9 +5,9 @@
             <h3 class="page-title">Quản lý danh mục
             </h3>
         </div>
-        <button type="button" class="btn btn-primary create-user" >
+        <a type="button" class="btn btn-primary create-user" href="index.php?controller=category&action=create" >
             Thêm mới
-        </button>
+        </a>
     </div>
 </div>
 <!-- /Page Header -->
@@ -77,7 +77,21 @@
             </td>
 
             <td>
-                <?php echo $category['status'];?>
+                <?php
+                $status='';
+                if ( isset($category['status']) )
+                {
+                    switch ($category['status']) {
+                        case 0:
+                            $status = 'Không hoạt động';
+                            break;
+                        case 1:
+                            $status = 'Hoạt động';
+                            break;
+                    }
+                }
+                echo $status;
+                 ?>
             </td>
 
             <td>

@@ -5,9 +5,9 @@
             <h3 class="page-title">Quản lý sản phẩm
             </h3>
         </div>
-        <button type="button" class="btn btn-primary create-user" >
+        <a type="button" class="btn btn-primary create-user" href="index.php?controller=product&action=create">
             Thêm mới
-        </button>
+        </a>
     </div>
 </div>
 <!-- /Page Header -->
@@ -28,10 +28,10 @@
             ID
         </th>
         <th>
-            Mã danh mục
+           Mã danh mục sản phẩm
         </th>
         <th>
-            Tên danh mục
+            Tên sản phẩm
         </th>
         <th>
             Ảnh

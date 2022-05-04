@@ -22,7 +22,7 @@
     </button>
 </div>
 <div class="modal-body">
-    <form action="" method="POST" id="form-create-user" enctype="multipart/form-data">
+    <form action="index.php?controller=user&action=create" method="POST" id="form-create-user" enctype="multipart/form-data">
         <div class="row form-group" align="center">
             <img src="http://localhost/DoAn/publish/avatar/no-avatar.png" class="avatar-create">
             <input type="file" name="avatar" class="input-avatar-create" style="display:none;" >
@@ -69,6 +69,40 @@
             <span class="help-block email-validate" />
         </div>
 
+
+        <div class="row form-group">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Phân quyền</span>
+                </div>
+                <?php
+                $selected0 = '';
+                $selected1 = '';
+                $selected2 = '';
+                if (isset($_POST['role'])) {
+                    switch ($_POST['role']) {
+                        case 0:
+                            $selected0 = 'selected';
+                            break;
+                        case 1:
+                            $selected1 = 'selected';
+                            break;
+                        case 2:
+                            $selected2 = 'selected';
+                            break;
+                    }
+                }
+                ?>
+                <select name="role" class="form-control">
+                    <option value="0" <?php echo $selected0 ?> >Khách hàng</option>
+                    <option value="1" <?php echo $selected1 ?> >Nhân viên</option>
+                    <option value="2" <?php echo $selected2 ?> >Admin</option>
+                </select>
+
+            </div>
+            <span class="help-block phone-validate" />
+        </div>
+
         <div class="row form-group">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
@@ -101,9 +135,9 @@
             <span class="help-block date-of-birth-validate" />
         </div>
 
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-            <button type="button" class="btn btn-primary">Thêm mới</button>
+        <div class="mt-4">
+            <input type="submit" class="btn btn-primary" name="submit"  value="Save"/>
+            <input type="reset" class="btn btn-secondary" name="submit" value="Reset"/>
         </div>
     </form>
 </div>
@@ -114,7 +148,17 @@
         var imageAvatar = form.find('.avatar-create').first();
         var imageInput  = form.find('.input-avatar-create').first();
         initImageFile(imageAvatar, imageInput);
+        createUser();
     }
+    function alert(message, type='info', detail ){
+        Swal.fire(
+            message,
+            detail,
+            type
+        )
+    }
+
+
 
     $(document).ready(function(){
 
