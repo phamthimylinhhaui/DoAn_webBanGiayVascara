@@ -6,7 +6,6 @@
 
             <div class="swiper-slide">
                 <div class="slide-inner bg-height" data-bg-image="assets/images/banner/banner1.png">
-
                 </div>
             </div>
 
@@ -66,7 +65,7 @@
                         </p>
                         <div class="button-wrap pt-8">
                             <a class="btn btn-custom-size lg-size btn-primary btn-dark-hover rounded-0 main-bg-vascara btn-main-vascara"
-                               href="Category/Detail/1">Xem Thêm</a>
+                               href="index.php?controller=new&action=detail_logo">Xem Thêm</a>
                         </div>
                     </div>
                 </div>
@@ -83,25 +82,27 @@
             <h2 class="title mb-0">Sản phẩm của chúng tôi</h2>
         </div>
         <div class="row">
-
+        <?php
+            foreach ($products AS $product){
+        ?>
             <div class="col-xl-3 col-lg-4 col-sm-6 pt-6">
                 <div class="product-item">
                     <div class="product-img img-zoom-effect">
-                        <a href="details.html">
+                        <a href="index.php?controller=product&action=detail&id=<?php echo $product['id'] ?>">
                             <img class="img-full"
-                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
+                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/December/30/giay-sneaker-vien-chi-noi-phoi-metallic-snk-0044-mau-be-3__62049__1640855808-medium.jpg"
                                  alt="Sản phẩm 1 ">
                         </a>
                         <div class="product-add-action">
                             <ul>
                                 <li>
-                                    <button onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
+                                    <a type="button" href="index.php?controller=cart&action=index" onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
                                         <i class="pe-7s-cart"></i>
-                                    </button>
+                                    </a>
                                 </li>
 
                                 <li>
-                                    <a href="details.html">
+                                    <a href="index.php?controller=product&action=detail&id=<?php echo $product['id'] ?>">
                                         <i class="pe-7s-look"></i>
                                     </a>
                                 </li>
@@ -109,9 +110,9 @@
                         </div>
                     </div>
                     <div class="product-content">
-                        <a class="product-name dieuchinhcss main-color-vascara" href="details.html">Sản phẩm 1 </a>
+                        <a class="product-name dieuchinhcss main-color-vascara" href="index.php?controller=product&action=detail&id=<?php echo $product['id'] ?>"><?php echo $product['name']?></a>
                         <div class="price-box pb-1">
-                            <span class="new-price">Giá: 378,000 vnđ</span>
+                            <span class="new-price">Giá: <?php echo number_format($product['price'])?> vnđ</span>
                         </div>
 
                     </div>
@@ -119,257 +120,11 @@
 
                 </div>
             </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 pt-6">
-                <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                        <a href="details.html">
-                            <img class="img-full"
-                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
-                                 alt="Sản phẩm 1 ">
-                        </a>
-                        <div class="product-add-action">
-                            <ul>
-                                <li>
-                                    <button onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
-                                        <i class="pe-7s-cart"></i>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <a href="details.html">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a class="product-name dieuchinhcss main-color-vascara" href="details.html">Sản phẩm 1 </a>
-                        <div class="price-box pb-1">
-                            <span class="new-price">Giá: 378,000 vnđ</span>
-                        </div>
-
-                    </div>
+            <?php
+            }
+            ?>
 
 
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 pt-6">
-                <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                        <a href="details.html">
-                            <img class="img-full"
-                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
-                                 alt="Sản phẩm 1 ">
-                        </a>
-                        <div class="product-add-action">
-                            <ul>
-                                <li>
-                                    <button onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
-                                        <i class="pe-7s-cart"></i>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <a href="details.html">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a class="product-name dieuchinhcss main-color-vascara" href="details.html">Sản phẩm 1 </a>
-                        <div class="price-box pb-1">
-                            <span class="new-price">Giá: 378,000 vnđ</span>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 pt-6">
-                <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                        <a href="details.html">
-                            <img class="img-full"
-                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
-                                 alt="Sản phẩm 1 ">
-                        </a>
-                        <div class="product-add-action">
-                            <ul>
-                                <li>
-                                    <button onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
-                                        <i class="pe-7s-cart"></i>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <a href="details.html">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a class="product-name dieuchinhcss main-color-vascara" href="details.html">Sản phẩm 1 </a>
-                        <div class="price-box pb-1">
-                            <span class="new-price">Giá: 378,000 vnđ</span>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 pt-6">
-                <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                        <a href="details.html">
-                            <img class="img-full"
-                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
-                                 alt="Sản phẩm 1 ">
-                        </a>
-                        <div class="product-add-action">
-                            <ul>
-                                <li>
-                                    <button onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
-                                        <i class="pe-7s-cart"></i>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <a href="details.html">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a class="product-name dieuchinhcss main-color-vascara" href="details.html">Sản phẩm 1 </a>
-                        <div class="price-box pb-1">
-                            <span class="new-price">Giá: 378,000 vnđ</span>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 pt-6">
-                <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                        <a href="details.html">
-                            <img class="img-full"
-                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
-                                 alt="Sản phẩm 1 ">
-                        </a>
-                        <div class="product-add-action">
-                            <ul>
-                                <li>
-                                    <button onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
-                                        <i class="pe-7s-cart"></i>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <a href="details.html">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a class="product-name dieuchinhcss main-color-vascara" href="details.html">Sản phẩm 1 </a>
-                        <div class="price-box pb-1">
-                            <span class="new-price">Giá: 378,000 vnđ</span>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-
-            <div class="col-xl-3 col-lg-4 col-sm-6 pt-6">
-                <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                        <a href="details.html">
-                            <img class="img-full"
-                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
-                                 alt="Sản phẩm 1 ">
-                        </a>
-                        <div class="product-add-action">
-                            <ul>
-                                <li>
-                                    <button onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
-                                        <i class="pe-7s-cart"></i>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <a href="details.html">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a class="product-name dieuchinhcss main-color-vascara" href="details.html">Sản phẩm 1 </a>
-                        <div class="price-box pb-1">
-                            <span class="new-price">Giá: 378,000 vnđ</span>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-sm-6 pt-6">
-                <div class="product-item">
-                    <div class="product-img img-zoom-effect">
-                        <a href="details.html">
-                            <img class="img-full"
-                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
-                                 alt="Sản phẩm 1 ">
-                        </a>
-                        <div class="product-add-action">
-                            <ul>
-                                <li>
-                                    <button onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
-                                        <i class="pe-7s-cart"></i>
-                                    </button>
-                                </li>
-
-                                <li>
-                                    <a href="details.html">
-                                        <i class="pe-7s-look"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <a class="product-name dieuchinhcss main-color-vascara" href="details.html">Sản phẩm 1 </a>
-                        <div class="price-box pb-1">
-                            <span class="new-price">Giá: 378,000 vnđ</span>
-                        </div>
-
-                    </div>
-
-
-                </div>
-            </div>
 
 
             <div class="col-lg-12">

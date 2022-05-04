@@ -48,7 +48,14 @@
 <!--end header-->
 
 <!--   menu-->
-<?php require_once "views/layouts/menu.php"?>
+<?php
+    // khai báo menu
+        $products_model = new Product();
+        $products = $products_model->getAll();
+
+        $category_model = new Category();
+        $categories = $category_model->getAll();
+    require_once "views/layouts/menu.php"?>
 <!--end menu-->
 
     <div class="mobile-menu_wrapper" id="mobileMenu">
@@ -312,29 +319,12 @@
                         <h3 class="widget-title mb-5">Danh mục sản phẩm</h3>
                         <ul class="widget-list-item">
 
-                            <li>
-                                <a href="Category.html">Giày Cao gót</a>
-                            </li>
+                            <?php foreach ($categories as $category){?>
+                                <li>
+                                    <a href="index.php?controller=product&action=get_products_by_category&id=<?php echo $category['id']?>"><?php echo $category['name']?></a>
+                                </li>
 
-                            <li>
-                                <a href="Category.html">giày sandals</a>
-                            </li>
-
-                            <li>
-                                <a href="Category.html">giày Sneaker</a>
-                            </li>
-
-
-                            <li>
-                                <a href="Category.html">Giày Boots</a>
-                            </li>
-
-                            <li>
-                                <a href="Category.html">Giày da thật</a>
-                            </li>
-                            <li>
-                                <a href="Category.html">Giày lười</a>
-                            </li>
+                            <?php }?>
 
                         </ul>
                     </div>

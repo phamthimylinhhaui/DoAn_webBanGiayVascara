@@ -31,7 +31,7 @@
             Ảnh
         </th>
         <th>
-           Mã danh mục
+           Tên danh mục
         </th>
         <th>
             Tên sản phẩm
@@ -41,11 +41,12 @@
             Giá
         </th>
         <th>
-            Mô tả
+            Số lượng
         </th>
         <th>
-            Ngày tạo
+            Mô tả
         </th>
+
         <th>
             Tùy chọn
         </th>
@@ -72,7 +73,7 @@
             </td>
 
             <td>
-                <?php echo $product['category_id'];?>
+                <?php echo $product['category_name'];?>
             </td>
 
             <td>
@@ -87,13 +88,14 @@
             </td>
 
             <td>
-                <?php echo $product['description'];?>
+                <?php echo $product['amount'];?>
             </td>
 
             <td>
-                <?php if (isset($product['created_at'])) echo date('d-m-Y H:i:s', strtotime($product['created_at']));?>
-
+                <?php echo $product['description'];?>
             </td>
+
+
 
             <td class="row" >
                 <a type="button" class="btn btn-info" href="index.php?controller=product&action=detail&id=<?php echo $product['id']?>">

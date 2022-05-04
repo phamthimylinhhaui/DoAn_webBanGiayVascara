@@ -19,6 +19,27 @@
 <!-- Style CSS -->
 <link rel="stylesheet" href="assets/css/style.min.css">
 
+<!-- Minify Version -->
+<link rel="stylesheet" href="assets/css/vendor/vendor.min.css">
+<link rel="stylesheet" href="assets/css/plugins/plugins.min.css">
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="assets/css/style.min.css">
+
+
+
+<link rel="icon" href="assets/images/favicon.ico" />
+<link rel="stylesheet" href="assets/js1/custom/user.css" />
+
+
+
+<!-- Style CSS -->
+<link rel="stylesheet" href="assets/css/style.min.css">
+
+
+
+<link href="assets/js1/custom/mainnnn.css" rel="stylesheet" />
+
 <!-- user -->
 <style>
     .pagination{

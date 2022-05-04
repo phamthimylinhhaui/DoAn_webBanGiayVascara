@@ -8,7 +8,7 @@
                         <nav class="main-nav">
                             <ul style="justify-content:left">
                                 <li class="drop-holder">
-                                    <a href="index.html">
+                                    <a href="index.php?controller=home&action=index">
                                         <i class="pe-7s-home" style="font-size:20px"></i>
 
                                     </a>
@@ -17,11 +17,15 @@
 
                                 <?php foreach ($categories as $category){?>
                                 <li>
-                                    <a href="index.php?controller=category&action=get_products_by_category&id=<?php echo $category['id']?>"><?php echo $category['name']?></a>
+                                    <a href="index.php?controller=product&action=get_products_by_category&id=<?php echo $category['id']?>"><?php echo $category['name']?></a>
                                 </li>
 
                                 <?php }?>
 
+
+                                <li>
+                                    <a href="index.php?controller=new&action=index">Tin tức</a>
+                                </li>
                             </ul>
 
                         </nav>

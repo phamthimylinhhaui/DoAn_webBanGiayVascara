@@ -35,7 +35,7 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <div class="header-middle-wrap">
-                    <a href="index.html" class="header-logo">
+                    <a href="index.php?controller=home&action=index" class="header-logo">
                         <img src="assets/images/logo/vascra.png" alt="Header Logo">
                     </a>
                     <div class="header-search-area d-none d-lg-block" style="width:630px">
@@ -59,7 +59,7 @@
                         <ul>
                             <li class="dropdown d-none d-md-block">
 
-                                <a href="login.html" class="btn btn-link dropdown-toggle ht-btn p-0">
+                                <a href="index.php?controller=auth&action=login" class="btn btn-link dropdown-toggle ht-btn p-0">
                                     <i class="pe-7s-users"> </i>
                                     <span
                                         style=" color: #797676; padding-left: 7px; font-size: 16px; padding-top: 3px;">Đăng
@@ -77,7 +77,7 @@
                             </li>
                             <li class="minicart-wrap me-3 me-lg-0">
 
-                                <a title="Cartlist" href="checkout.html" class="minicart-btn ">
+                                <a title="Cartlist" href="index.php?controller=cart&action=index" class="minicart-btn ">
                                     <i class="pe-7s-shopbag"></i>
                                     <span
                                         style="position: absolute; color: #e87474; left: 46px; font-weight: 600; top: -5px; font-size: 14px; ">Tổng:</span>

@@ -1,5 +1,6 @@
 <?php
-
+require_once "models/Product.php";
+require_once "models/Category.php";
 
 class Controller
 {
@@ -9,6 +10,7 @@ class Controller
 
     public function __construct()
     {
+
     }
 
     public function render($file,$variables = array()){
