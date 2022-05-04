@@ -85,15 +85,15 @@
             </td>
 
             <td >
-                <!-- Button trigger modal for show-form-edit-user -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"  onclick="showFormEdit(<?php echo $user['id']; ?>)">
+                <a type="button" class="btn btn-primary"  href="index.php?controller=new&action=edit&id=<?php echo $news['id']?>">
                     Sửa
-                </button>
+                </a>
 
 
-                <button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo $user['id']; ?>)">
+                <a type="button" class="btn btn-danger" href="index.php?controller=new&action=delete&id=<?php echo $news['id'] ?>" title="Xóa"
+                   onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này')">
                     Xóa
-                </button>
+                </a>
 
             </td>
         </tr>

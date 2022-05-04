@@ -1,32 +1,62 @@
-<div class="sidebar" id="sidebar">
-    <div class="sidebar-logo">
-        <a href="index.php?controller=home&action=index">
-            <img src="assets/vascra.png" style="margin-bottom:20px"
-                 class="img-fluid"
-                 alt="" />
-        </a>
-    </div>
-    <div class="sidebar-inner slimscroll">
-        <div id="sidebar-menu" class="sidebar-menu">
-            <ul>
-                <li class="active">
-                    <a href="index.php?controller=home&action=index"><i class="fas fa-columns"></i> <span>Thống kê</span></a>
-                </li>
+<!-- Start menu pc -->
+<div class="main-header " style="border-top: 1px solid #f15c68; border-bottom: 1px solid #f15c68;">
+    <div class="container">
+        <div class="main-header_nav position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-12 d-none d-lg-block">
+                    <div class="main-menu">
+                        <nav class="main-nav">
+                            <ul style="justify-content:left">
+                                <li class="drop-holder">
+                                    <a href="index.html">
+                                        <i class="pe-7s-home" style="font-size:20px"></i>
 
-                <li class="">
-                    <a href="index.php?controller=feedback&action=index">
-                        <i class="fab fa-buffer"></i>
-                        <span>Quản lý phản hồi</span>
-                    </a>
-                </li>
-                <li class="">
-                    <a href="index.php?controller=order&action=index">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span>Quản lý đơn hàng</span>
-                    </a>
-                </li>
+                                    </a>
 
-            </ul>
+                                </li>
+
+                                <?php foreach ($categories as $category){?>
+                                <li>
+                                    <a href="index.php?controller=category&action=get_products_by_category&id=<?php echo $category['id']?>"><?php echo $category['name']?></a>
+                                </li>
+
+                                <?php }?>
+
+                            </ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<!-- End menu pc -->
+
+<!-- Start menu mobile -->
+<style>
+    .header-right {
+        min-width: 0px;
+    }
+
+    .header-right>ul {
+        justify-content: space-between;
+    }
+
+    ul.dropdown-wrap.justify-content-center.text-silver {
+        background: #2b2828;
+        padding: 20px;
+    }
+
+    .dropdown-wrap li .ht-btn:after {
+        display: none;
+    }
+
+    .offcanvas-search_wrapper .harmic-offcanvas-body .offcanvas-search {
+        justify-content: flex-start;
+    }
+
+    .main-header.header-sticky.sticky {
+        top: 94px;
+    }
+</style>

@@ -28,14 +28,15 @@
             ID
         </th>
         <th>
-           Mã danh mục sản phẩm
+            Ảnh
+        </th>
+        <th>
+           Mã danh mục
         </th>
         <th>
             Tên sản phẩm
         </th>
-        <th>
-            Ảnh
-        </th>
+
         <th>
             Giá
         </th>
@@ -64,6 +65,11 @@
             <td>
                 <?php echo $product['id'];?>
             </td>
+            <td>
+                <img id="image" src="<?php
+                if (isset($product['avatar']))
+                    echo $product['avatar'];?>" class="avatar">
+            </td>
 
             <td>
                 <?php echo $product['category_id'];?>
@@ -73,15 +79,11 @@
                 <?php echo $product['name'];?>
             </td>
 
-            <td>
-                <img id="image" src="<?php
-                if (isset($product['avatar']))
-                    echo $product['avatar'];?>" class="avatar">
-            </td>
+
 
 
             <td>
-                <?php echo $product['price'];?>
+                <?php echo number_format($product['price']);?>
             </td>
 
             <td>
@@ -89,19 +91,23 @@
             </td>
 
             <td>
-                <?php if (isset($product['created_at'])) echo $product['created_at'];?>
+                <?php if (isset($product['created_at'])) echo date('d-m-Y H:i:s', strtotime($product['created_at']));?>
+
             </td>
 
-            <td >
-                <!-- Button trigger modal for show-form-edit-user -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"  onclick="showFormEdit(<?php echo $user['id']; ?>)">
+            <td class="row" >
+                <a type="button" class="btn btn-info" href="index.php?controller=product&action=detail&id=<?php echo $product['id']?>">
+                    Chi tiết
+                </a>
+
+                <a type="button" class="btn btn-info"  href="index.php?controller=product&action=edit&id=<?php echo $product['id']?>">
                     Sửa
-                </button>
+                </a>
 
-
-                <button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo $user['id']; ?>)">
+                <a type="button" class="btn btn-danger" href="index.php?controller=product&action=delete&id=<?php echo $product['id'] ?>" title="Xóa"
+                   onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này')">
                     Xóa
-                </button>
+                </a>
 
             </td>
         </tr>

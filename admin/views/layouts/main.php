@@ -50,7 +50,7 @@
                             </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="index.html">Đăng xuất</a>
+                        <a class="dropdown-item" href="index.php?controller=auth&action=login">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
