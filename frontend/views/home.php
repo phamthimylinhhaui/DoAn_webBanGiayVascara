@@ -90,7 +90,7 @@
                     <div class="product-img img-zoom-effect">
                         <a href="index.php?controller=product&action=detail&id=<?php echo $product['id'] ?>">
                             <img class="img-full"
-                                 src="https://www.vascara.com/uploads/cms_productmedia/2021/December/30/giay-sneaker-vien-chi-noi-phoi-metallic-snk-0044-mau-be-3__62049__1640855808-medium.jpg"
+                                 src="<?php echo $product['avatar']; ?>"
                                  alt="Sản phẩm 1 ">
                         </a>
                         <div class="product-add-action">

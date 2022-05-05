@@ -62,7 +62,7 @@ class ProductController extends Controller
                 $filename = $product['avatar'];
                 //xử lý upload file nếu có
                 if ($_FILES['avatar']['error'] == 0) {
-                    $dir_uploads = 'assets/uploads';
+                    $dir_uploads = '../publish/avatar_product';
                     //xóa file cũ, thêm @ vào trước hàm unlink để tránh báo lỗi khi xóa file ko tồn tại
                     @unlink($dir_uploads . '/' . $filename);
                     if (!file_exists($dir_uploads)) {
@@ -75,7 +75,10 @@ class ProductController extends Controller
                 //save dữ liệu vào bảng products
                 $product_model->category_id = $category_id;
                 $product_model->name = $name;
-                $product_model->avatar = $filename;
+
+                $avatar="http://localhost/DoAn/publish/avatar_product/".$filename;
+                $product_model->avatar = $avatar;
+
                 $product_model->price = $price;
                 $product_model->amount = $amount;
                 $product_model->height = $height;
@@ -144,6 +147,8 @@ class ProductController extends Controller
     public function create()
     {
 
+        $product_model = new Product();
+
         if (isset($_POST['submit'])) {
             $category_id = $_POST['category_id'];
             $name = $_POST['name'];
@@ -185,24 +190,25 @@ class ProductController extends Controller
             }
 
             //nếu ko có lỗi thì tiến hành lưu dữ liệu và upload ảnh nếu có
-            $avatar = '';
+            $filename = '';
             if (empty($this->error)) {
                 //xử lý upload ảnh nếu có
                 if ($avatar_files['error'] == 0) {
-                    $dir_uploads = 'assets/uploads';
+                    $dir_uploads = '../publish/avatar_product';
                     if (!file_exists($dir_uploads)) {
                         mkdir($dir_uploads);
                     }
-                    $avatar = time() . '-' . $avatar_files['name'];
-                    move_uploaded_file($avatar_files['tmp_name'], $dir_uploads . '/' . $avatar);
+                    $filename = time() . '-' . $avatar_files['name'];
+                    move_uploaded_file($avatar_files['tmp_name'], $dir_uploads . '/' . $filename);
                 }
 
                 //lưu vào csdl
                 //gọi model để thực  hiện lưu
-                $product_model = new Product();
                 //gán các giá trị từ form cho các thuộc tính của category
                 $product_model->category_id = $category_id;
                 $product_model->name = $name;
+                $avatar="http://localhost/DoAn/publish/avatar_product/".$filename;
+
                 $product_model->avatar = $avatar;
                 $product_model->price = $price;
                 $product_model->amount = $amount;

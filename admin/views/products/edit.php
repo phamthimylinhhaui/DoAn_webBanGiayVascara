@@ -14,7 +14,7 @@
             <div class="card">
                 <div class="card-body">
                     <!-- Form -->
-                    <form method="post" action="" enctype="multipart/form-data">
+                    <form method="post" action="" enctype="multipart/form-data" id="form-edit-user">
                         <div class="form-group">
                             <label>Tên sản phẩm</label>
                             <input class="form-control text-box single-line"  id="product_name" name="name" type="text" value="<?php echo $product['name'];?>" />
@@ -22,9 +22,9 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-12">Ảnh đại diện</label>
-                            <img id="output" class="img-rounded" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6xzz1W1CI__132MzHFECHPDSvupa4j2K32szHkZpmLIO69CxsXfqkGZZeBW1aw-6gHvw&usqp=CAU" alt="Ảnh"  style="display:block; margin:0 auto"/>
+                            <img id="output" class="img-rounded avatar-create" width="100" height="100" src="<?php if (!empty($product['avatar'])) echo $product['avatar'] ?>" alt="Ảnh"  style="display:block; margin:0 auto"/>
                             <p class="text-center"><label for="ufile" style="cursor:pointer;"><i class="fas fa-upload"></i> Chọn file ảnh</label></p>
-                            <input name="avatar" id="ufile" type="file" style="display:none;" onchange="loadFile(event)" />
+                            <input name="avatar" id="ufile" type="file" class="input-avatar-create" style="display:none;" onchange="loadFile(event)" value="<?php if (!empty($product['avatar'])) echo $product['avatar'] ?> />
                         </div>
                         <div class="form-group">
                             <label>Giá bán</label>
@@ -82,3 +82,16 @@
     </div>
 </div>
 
+<script>
+    function initCreateUserForm(){
+        var form = $('#form-edit-user');
+        var imageAvatar = form.find('.avatar-create').first();
+        var imageInput  = form.find('.input-avatar-create').first();
+        initImageFile(imageAvatar, imageInput);
+    }
+    $(document).ready(function(){
+
+        initCreateUserForm();
+
+    });
+</script>

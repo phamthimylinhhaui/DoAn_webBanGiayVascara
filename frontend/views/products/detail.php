@@ -32,13 +32,12 @@
                             <div class="swiper-wrapper">
 
                                 <div class="swiper-slide">
-                                    <a href="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
-                                       class="single-img gallery-popup" style="margin:0 auto">
+
                                         <img class="img-full img-"
-                                             src="https://www.vascara.com/uploads/cms_productmedia/2021/June/30/giay-sneaker-vien-chi-noi-thoi-trang-snk-0042-mau-trang-5__60485__1625071843-medium@2x.jpg?1"
+                                             src="<?php echo $product['avatar'];?>"
                                              alt="Product Image" style="width: 100%; max-height: 450px; margin: 0 auto; display: block; ">
 
-                                    </a>
+
                                 </div>
 
                             </div>

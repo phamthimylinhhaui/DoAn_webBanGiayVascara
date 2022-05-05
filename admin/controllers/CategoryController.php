@@ -50,7 +50,7 @@ class CategoryController extends Controller
             if (empty($this->error)) {
                 //xử lý upload ảnh nếu có
                 if ($avatar_files['error'] == 0) {
-                    $dir_uploads = 'assets/uploads';
+                    $dir_uploads = '../publish/avatar_category';
                     if (!file_exists($dir_uploads)) {
                         mkdir($dir_uploads);
                     }
@@ -62,7 +62,8 @@ class CategoryController extends Controller
                 $category_model = new Category();
                 //gán các giá trị từ form cho các thuộc tính của category
                 $category_model->name = $name;
-                $category_model->avatar = $avatar;
+                $filename="http://localhost/DoAn/publish/avatar_category/".$avatar;
+                $category_model->avatar = $filename;
                 $category_model->description = $description;
                 $category_model->status = $status;
 

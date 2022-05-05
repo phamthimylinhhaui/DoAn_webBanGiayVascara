@@ -16,3 +16,22 @@
 <!-- Custom JS -->
 <script src="assets/js/admin.js"></script>
 <script src="assets/js/toastr.js"></script>
+
+<script>
+    function initImageFile(image, inputFile){
+        image.click(function (){
+            inputFile.trigger('click');
+        });
+
+        inputFile.change(function (){
+            var reader= new FileReader();
+
+            reader.onload= function (e){
+                var img=image[0];
+                img.src=e.target.result;
+            };
+
+            reader.readAsDataURL(inputFile[0].files[0]);
+        });
+    }
+</script>

@@ -24,8 +24,8 @@
 <div class="modal-body">
     <form action="index.php?controller=user&action=create" method="POST" id="form-create-user" enctype="multipart/form-data">
         <div class="row form-group" align="center">
-            <img src="http://localhost/DoAn/publish/avatar/no-avatar.png" class="avatar-create">
-            <input type="file" name="avatar" class="input-avatar-create" style="display:none;" >
+            <img src="http://localhost/DoAn/publish/avatar_user/no-avatar.png" class="avatar-create">
+            <input type="file" name="avatar" class="input-avatar-create" style="display: none" >
         </div>
 
         <div class="row form-group">
@@ -130,7 +130,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Ngày sinh</span>
                 </div>
-                <input type="text" class="form-control date-of-birth2" name="date_of_birth" >
+                <input type="date" class="form-control date-of-birth2" name="date_of_birth" >
             </div>
             <span class="help-block date-of-birth-validate" />
         </div>

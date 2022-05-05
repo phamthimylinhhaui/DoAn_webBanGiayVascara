@@ -36,14 +36,20 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
             ':avatar' => $this->avatar,
             ':phone' => $this->phone
         ];
-
 //                echo "<pre style='margin-top: 150px; margin-left: 300px;'>";
 //                print_r( $arr_insert);
 //                echo "</pre>";
 //                die();
-
+//
 
         return $obj_insert->execute($arr_insert);
+    }
+
+    public function getUserByUsername($username){
+        $obj_select = $this->connection
+            ->prepare("SELECT COUNT(id) FROM users WHERE username='$username'");
+        $obj_select->execute();
+        return $obj_select->fetchColumn();
     }
 
 

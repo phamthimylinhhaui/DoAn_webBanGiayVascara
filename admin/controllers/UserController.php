@@ -6,6 +6,9 @@ require_once 'models/Pagination.php';
 class UserController extends Controller
 {
     public function create(){
+
+        $user_model = new User();
+
         if (isset($_POST['submit'])) {
             $username = $_POST['username'];
             $fullname = $_POST['fullname'];
@@ -14,7 +17,7 @@ class UserController extends Controller
             $email  = $_POST['email'];
             $phone  = $_POST['phone'];
             $date_of_birth  = $_POST['date_of_birth'];
-            $avatar_files = $_FILES['avatar'];
+            //$avatar_files = $_FILES['avatar'];
 
             //check validate
             if (empty($username)) {
@@ -29,12 +32,21 @@ class UserController extends Controller
             else if (empty($email)) {
                 $this->error = 'Cần nhập mail';
             }
+            else if (!empty($username)) {
+                //kiếm tra xem username đã tồn tại trong DB hay chưa, nếu tồn tại sẽ báo lỗi
+                $count_user = $user_model->getUserByUsername($username);
+                if ($count_user) {
+                    $this->error = 'Username này đã tồn tại trong CSDL';
+                }
+            }
+
             //trường hợp có ảnh upload lên, thì cần kiểm tra điều kiện là file ảnh
-            else if ($avatar_files['error'] == 0) {
+            else if ($_FILES['avatar']['error'] == 0) {
                 $extension_arr = ['jpg', 'jpeg', 'gif', 'png'];
-                $extension = pathinfo($avatar_files['name'], PATHINFO_EXTENSION);
+                $extension = pathinfo($_FILES['avatar']['error'], PATHINFO_EXTENSION);
+
                 $extension = strtolower($extension);
-                $file_size_mb = $avatar_files['size'] / 1024 / 1024;
+                $file_size_mb = $_FILES['avatar']['size'] / 1024 / 1024;
                 //làm tròn theo đơn vị thập phân
                 $file_size_mb = round($file_size_mb, 2);
 
@@ -46,20 +58,24 @@ class UserController extends Controller
             }
 
             //nếu ko có lỗi thì tiến hành lưu dữ liệu và upload ảnh nếu có
-            $avatar = '';
+            $filename = '';
             if (empty($this->error)) {
                 //xử lý upload ảnh nếu có
-                if ($avatar_files['error'] == 0) {
-                    $dir_uploads = 'assets/uploads';
+                if ($_FILES['avatar']['error'] == 0) {
+                    $dir_uploads = '../publish/avatar_user';
                     if (!file_exists($dir_uploads)) {
                         mkdir($dir_uploads);
                     }
-                    $avatar = time() . '-' . $avatar_files['name'];
-                    move_uploaded_file($avatar_files['tmp_name'], $dir_uploads . '/' . $avatar);
+                    $filename = time() . '-user-' . $_FILES['avatar']['name'];
+                    move_uploaded_file($_FILES['avatar']['tmp_name'], $dir_uploads . '/' . $filename);
                 }
+//                echo "<pre>";
+//                print_r($filename);
+//                echo "</pre>";
+//                die();
+
                 //lưu vào csdl
                 //gọi model để thực  hiện lưu
-                $user_model = new User();
                 //gán các giá trị từ form cho các thuộc tính của category
                 $user_model->username = $username;
                 $user_model->password = $password;
@@ -67,7 +83,10 @@ class UserController extends Controller
                 $user_model->date_of_birth = $date_of_birth;
                 $user_model->name = $fullname;
                 $user_model->email = $email;
+
+                $avatar="http://localhost/DoAn/publish/avatar_user/".$filename;
                 $user_model->avatar = $avatar;
+
                 $user_model->phone = $phone;
 
 

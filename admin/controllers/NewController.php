@@ -37,7 +37,7 @@ class NewController extends Controller
             if (empty($this->error)) {
                 //xử lý upload ảnh nếu có
                 if ($avatar_files['error'] == 0) {
-                    $dir_uploads = 'assets/uploads';
+                    $dir_uploads = '../publish/avatar_new';
                     if (!file_exists($dir_uploads)) {
                         mkdir($dir_uploads);
                     }
@@ -47,9 +47,11 @@ class NewController extends Controller
                 //lưu vào csdl
                 //gọi model để thực  hiện lưu
                 $new_model = new News();
-                //gán các giá trị từ form cho các thuộc tính của category
+
                 $new_model->title = $title;
-                $new_model->image = $avatar;
+                $filename="http://localhost/DoAn/publish/avatar_product/".$avatar;
+
+                $new_model->image = $filename;
                 $new_model->description = $description;
                 $new_model->username = $username;
 
