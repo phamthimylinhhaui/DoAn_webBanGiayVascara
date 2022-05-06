@@ -93,7 +93,7 @@
 
             <td >
                 <!-- Button trigger modal for show-form-edit-user -->
-                <a type="button" class="btn btn-info" href="index.php?controller=order&action=detail&id=<?php echo $order['id'];?>"  >
+                <a type="button" class="btn btn-primary" href="index.php?controller=order&action=detail&id=<?php echo $order['id'];?>"  >
                     Chi tiết
                 </a>
 

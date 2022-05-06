@@ -25,10 +25,15 @@
                             <input class="form-control text-box single-line"  id="product_name" name="name" type="text" value="<?php echo $product['name'];?>" readonly />
                             <span class="field-validation-valid text-danger" data-valmsg-for="product_name" data-valmsg-replace="true"></span>
                         </div>
+
                         <div class="form-group">
-                            <label class="col-md-12">Ảnh đại diện</label>
-                            <img id="output" class="img-rounded" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6xzz1W1CI__132MzHFECHPDSvupa4j2K32szHkZpmLIO69CxsXfqkGZZeBW1aw-6gHvw&usqp=CAU" alt="Ảnh"  style="display:block; margin:0 auto"/>
+                            <label class="col-md-4">Ảnh</label>
+                            <img id="output" class="img-rounded " width="200" height="200" src="<?php echo $product['avatar'];?>" alt="Ảnh" />
+                            <p class="text-center"><label for="ufile" style="cursor:pointer;">Chọn file ảnh</label></p>
+                            <input name="avatar" id="ufile" type="file" style="display:none;" onchange="loadFile(event)" />
+                            <input data-val="true" data-val-length="The field product_image must be a string with a maximum length of 50." data-val-length-max="50" id="avatar" name="avatar" type="hidden" value="4850402bi-do-giong-nhat.jpg" />
                         </div>
+
                         <div class="form-group">
                             <label>Giá bán</label>
                             <input readonly class="form-control text-box single-line"  id="product_price" name="price" type="text" value="<?php echo number_format($product['price']);?>" />
@@ -61,7 +66,11 @@
                             <input readonly class="form-control text-box single-line" id="product_description" name="description" type="text" value="<?php echo $product['description'];?>" />
                             <span class="field-validation-valid text-danger" data-valmsg-for="product_description" data-valmsg-replace="true"></span>
                         </div>
-
+                        <div class="modal-footer">
+                            <div style="margin-bottom:5px;">
+                                <input onclick="history.go(-1);" type="button" value="Back" class="btn btn-danger">
+                            </div>
+                        </div>
                     </form>
                     <!-- /Form -->
                 </div>
@@ -70,3 +79,9 @@
     </div>
 </div>
 
+<script>
+    var loadFile = function (event) {
+        var image = document.getElementById("output");
+        image.src = URL.createObjectURL(event.target.files[0])
+    }
+</script>

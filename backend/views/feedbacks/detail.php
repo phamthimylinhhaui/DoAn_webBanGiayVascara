@@ -41,6 +41,11 @@
                             <input readonly class="form-control text-box single-line"  id="category_name" name="description" type="text" value="<?php echo isset($_POST['created_at']) ? $_POST['created_at'] : $feedback['created_at']; ?>" />
                             <span class="field-validation-valid text-danger" data-valmsg-for="category_name" data-valmsg-replace="true"></span>
                         </div>
+                        <div class="modal-footer">
+                            <div style="margin-bottom:5px;">
+                                <input onclick="history.go(-1);" type="button" value="Quay lại" class="btn btn-danger">
+                            </div>
+                        </div>
 
                     </form>
                     <!-- Form -->

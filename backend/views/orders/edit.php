@@ -36,9 +36,11 @@
                             </select>
                         </div>
 
-                        <div class="mt-4">
-                            <input type="submit" class="btn btn-primary" name="submit" value="Save"/>
-                            <input type="reset" class="btn btn-secondary" name="submit" value="Reset"/>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" name="submit"  value="Lưu"/>
+                            <div style="margin-bottom:5px;">
+                                <input onclick="history.go(-1);" type="button" value="Quay lại" class="btn btn-danger">
+                            </div>
                         </div>
                     </form>
                     <!-- /Form -->

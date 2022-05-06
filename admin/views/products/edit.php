@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label class="col-md-12">Ảnh đại diện</label>
-                            <img id="output" class="img-rounded avatar-create" width="100" height="100" src="<?php if (!empty($product['avatar'])) echo $product['avatar'] ?>" alt="Ảnh"  style="display:block; margin:0 auto"/>
+                            <img id="output" class="img-rounded avatar-create" width="200" height="200" src="<?php if (!empty($product['avatar'])) echo $product['avatar'] ?>" alt="Ảnh"  style="display:block; margin:0 auto"/>
                             <p class="text-center"><label for="ufile" style="cursor:pointer;"><i class="fas fa-upload"></i> Chọn file ảnh</label></p>
                             <input name="avatar" id="ufile" type="file" class="input-avatar-create" style="display:none;" onchange="loadFile(event)" value="<?php if (!empty($product['avatar'])) echo $product['avatar'] ?> />
                         </div>
@@ -70,9 +70,11 @@
                             <span class="field-validation-valid text-danger" data-valmsg-for="product_description" data-valmsg-replace="true"></span>
                         </div>
 
-                        <div class="mt-4">
-                            <input type="submit" class="btn btn-primary" name="submit" value="Save"/>
-                            <input type="reset" class="btn btn-secondary" name="submit" value="Reset"/>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" name="submit"  value="Save"/>
+                            <div style="margin-bottom:5px;">
+                                <input onclick="history.go(-1);" type="button" value="Back" class="btn btn-danger">
+                            </div>
                         </div>
                     </form>
                     <!-- /Form -->
@@ -83,15 +85,8 @@
 </div>
 
 <script>
-    function initCreateUserForm(){
-        var form = $('#form-edit-user');
-        var imageAvatar = form.find('.avatar-create').first();
-        var imageInput  = form.find('.input-avatar-create').first();
-        initImageFile(imageAvatar, imageInput);
+    var loadFile = function (event) {
+        var image = document.getElementById("output");
+        image.src = URL.createObjectURL(event.target.files[0])
     }
-    $(document).ready(function(){
-
-        initCreateUserForm();
-
-    });
 </script>

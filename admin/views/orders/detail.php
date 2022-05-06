@@ -105,6 +105,6 @@
     </div>
 
     <div style="margin-bottom:5px;">
-        <input onclick="history.go(-1);" type="button" value="Back" class="btn btn-danger">
+        <input onclick="history.go(-1);" type="button" value="Quay lại" class="btn btn-danger">
     </div>
 </div>

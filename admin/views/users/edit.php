@@ -23,10 +23,15 @@
 </div>
 <div class="modal-body">
     <form method="POST" action="" id="form-edit-user" enctype="multipart/form-data">
-        <div class="row form-group" align="center">
-            <img src="<?php echo $user['avatar'];?>" class="avatar-edit">
-            <input type="file" name="avatar" class="input-avatar-edit" >
+        <div class="form-group">
+            <label class="col-md-4">Ảnh</label>
+            <img id="output" class="img-rounded avatar-edit "  src="<?php echo $user['avatar'];?>" alt="Ảnh" />
+            <p class="text-center"><label for="ufile" style="cursor:pointer;">Chọn file ảnh</label></p>
+            <input name="avatar" id="ufile" type="file" style="display:none;" onchange="loadFile(event)" />
+            <input data-val="true" data-val-length="The field product_image must be a string with a maximum length of 50." data-val-length-max="50" id="avatar" name="avatar" type="hidden" value="4850402bi-do-giong-nhat.jpg" />
         </div>
+
+
 
         <div class="row form-group">
             <div class="input-group mb-3">
@@ -115,9 +120,9 @@
         </div>
 
         <div class="modal-footer">
-            <input type="submit" class="btn btn-primary" name="submit"  value="Save"/>
+            <input type="submit" class="btn btn-primary" name="submit"  value="Lưu"/>
             <div style="margin-bottom:5px;">
-                <input onclick="history.go(-1);" type="button" value="Back" class="btn btn-danger">
+                <input onclick="history.go(-1);" type="button" value="Quay lại" class="btn btn-danger">
             </div>
         </div>
 
@@ -125,35 +130,9 @@
 </div>
 
 <script>
-    function initImageFile(image, inputFile){
-        image.click(function (){
-            inputFile.trigger('click');
-        });
-
-        inputFile.change(function (){
-            var reader= new FileReader();
-
-            reader.onload= function (e){
-                var img=image[0];
-                img.src=e.target.result;
-            };
-
-            reader.readAsDataURL(inputFile[0].files[0]);
-        });
+    var loadFile = function (event) {
+        var image = document.getElementById("output");
+        image.src = URL.createObjectURL(event.target.files[0])
     }
-    function initEditUserForm(){
-        var form = $('#form-edit-user');
-        var imageAvatar = form.find('.avatar-edit').first();
-        var imageInput  = form.find('.input-avatar-edit').first();
-        initImageFile(imageAvatar, imageInput);
-    }
-
-    $(document).ready(function(){
-
-        initEditUserForm();
-
-    });
-
-
 </script>
 

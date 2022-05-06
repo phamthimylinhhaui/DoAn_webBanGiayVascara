@@ -136,7 +136,7 @@
         </div>
 
         <div class="mt-4">
-            <input type="submit" class="btn btn-primary" name="submit"  value="Save"/>
+            <input type="submit" class="btn btn-primary" name="submit"  value="Lưu"/>
             <input type="reset" class="btn btn-secondary" name="submit" value="Reset"/>
         </div>
     </form>
