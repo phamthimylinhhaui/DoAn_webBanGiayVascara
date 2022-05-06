@@ -20,7 +20,7 @@
 <div class="row">
     <div class="col-4"></div>
     <div class="col-4">
-        <div style="display: none" id="deletee" class="alert alert-danger text-center" role="alert"></div>
+        <div style="display: none" id="delete" class="alert alert-danger text-center" role="alert"></div>
     </div>
     <div class="col-4"></div>
 </div>
@@ -117,9 +117,10 @@
 
             <td >
                 <!-- Button trigger modal for show-form-edit-user -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"  onclick="showFormEdit(<?php echo $user['id']; ?>)">
+                <a type="button" class="btn btn-primary"   href="index.php?controller=user&action=edit&id=<?php echo $user['id'] ?>"
+                >
                     Sửa
-                </button>
+                </a>
 
 
                 <a type="button" class="btn btn-danger" href="index.php?controller=user&action=delete&id=<?php echo $user['id'] ?>" title="Xóa"
@@ -138,13 +139,6 @@
     </tbody>
 </table>
 <!-- Modal for show-form-edit-user -->
-<div class="modal fade" id="edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content edit-user">
-
-        </div>
-    </div>
-</div>
 
 <?php
 require_once "views/users/script.php";

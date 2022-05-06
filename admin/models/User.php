@@ -45,6 +45,28 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
         return $obj_insert->execute($arr_insert);
     }
 
+    public function update($id)
+    {
+        $obj_update = $this->connection
+            ->prepare("UPDATE users SET role=:role, date_of_birth=:date_of_birth, name=:name, email=:email, avatar=:avatar, phone=:phone,
+            updated_at=CURRENT_TIMESTAMP() WHERE id = $id");
+        $arr_update = [
+            ':role' => $this->role,
+            ':date_of_birth' => $this->date_of_birth,
+            ':name' => $this->name,
+            ':email' => $this->email,
+            ':avatar' => $this->avatar,
+            ':phone' => $this->phone
+        ];
+
+//        echo "<pre>";
+//        print_r($arr_update);
+//        echo "</pre>";
+//        die();
+
+        return $obj_update->execute($arr_update);
+    }
+
     public function getUserByUsername($username){
         $obj_select = $this->connection
             ->prepare("SELECT COUNT(id) FROM users WHERE username='$username'");

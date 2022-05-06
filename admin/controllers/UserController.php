@@ -108,9 +108,116 @@ class UserController extends Controller
         //lấy nội dung view create.php
         $this->content = $this->render('views/users/create.php');
         //gọi layout để nhúng nội dung view create vừa lấy đc
-        require_once 'views/layouts/main.php';
+      //require_once 'views/users/create.php';
+       require_once 'views/layouts/main.php';
 
     }
+
+    public function edit(){
+        if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+            $_SESSION['error'] = 'ID không hợp lệ';
+            header('Location: index.php?controller=product');
+            exit();
+        }
+
+        $id = $_GET['id'];
+        $user_model = new User();
+        $user = $user_model->getById($id);
+
+
+
+        //xử lý submit form
+        if (isset($_POST['submit'])) {
+            //$username = $_POST['username'];
+            $fullname = $_POST['fullname'];
+            $role  = $_POST['role'];
+            $email  = $_POST['email'];
+            $phone  = $_POST['phone'];
+            $date_of_birth  = $_POST['date_of_birth'];
+            //$avatar = $_FILES['avatar'];
+
+
+
+
+            //xử lý validate
+            if (empty($fullname)) {
+                $this->error = 'Không được để trống title';
+            }
+            else if (empty($email)) {
+                $this->error = 'Cần nhập email của bạn';
+            }
+            else if (empty($phone)) {
+                $this->error = 'Cần nhập SĐT của bạn';
+            }
+            else if (empty($date_of_birth)) {
+                $this->error = 'Cần nhập ngày sinh của bạn';
+            }
+
+            else if ($_FILES['avatar']['error'] == 0) {
+                //validate khi có file upload lên thì bắt buộc phải là ảnh và dung lượng không quá 2 Mb
+                $extension = pathinfo($_FILES['avatar']['name'], PATHINFO_EXTENSION);
+                $extension = strtolower($extension);
+                $arr_extension = ['jpg', 'jpeg', 'png', 'gif'];
+
+                $file_size_mb = $_FILES['avatar']['size'] / 1024 / 1024;
+                //làm tròn theo đơn vị thập phân
+                $file_size_mb = round($file_size_mb, 2);
+
+                if (!in_array($extension, $arr_extension)) {
+                    $this->error = 'Cần upload file định dạng ảnh';
+                } else if ($file_size_mb > 2) {
+                    $this->error = 'File upload không được quá 2MB';
+                }
+            }
+
+            //nếu ko có lỗi thì tiến hành save dữ liệu
+            if (empty($this->error)) {
+                $filename = $user['avatar'];
+                //xử lý upload file nếu có
+                if ($_FILES['avatar']['error'] == 0) {
+                    $dir_uploads = '../publish/avatar_user';
+                    //xóa file cũ, thêm @ vào trước hàm unlink để tránh báo lỗi khi xóa file ko tồn tại
+                    @unlink($dir_uploads . '/' . $filename);
+                    if (!file_exists($dir_uploads)) {
+                        mkdir($dir_uploads);
+                    }
+                    //tạo tên file theo 1 chuỗi ngẫu nhiên để tránh upload file trùng lặp
+                    $filename = time() . '-user-' . $_FILES['avatar']['name'];
+                    move_uploaded_file($_FILES['avatar']['tmp_name'], $dir_uploads . '/' . $filename);
+                }
+                //save dữ liệu vào bảng products
+                $user_model->email= $email;
+                $user_model->phone = $phone;
+                $user_model->role = $role;
+
+                $avatar="http://localhost/DoAn/publish/avatar_user/".$filename;
+                $user_model->avatar = $avatar;
+
+                $user_model->name = $fullname;
+                $user_model->date_of_birth = $date_of_birth;
+
+                $is_update = $user_model->update($id);
+                if ($is_update) {
+                    $_SESSION['success'] = 'Update dữ liệu thành công';
+                } else {
+                    $_SESSION['error'] = 'Update dữ liệu thất bại';
+                }
+                header('Location: index.php?controller=user');
+                exit();
+            }
+        }
+
+
+        $this->title="Sửa tài khoản";
+        //lấy nội dung view create.php
+        $this->content = $this->render('views/users/edit.php',[
+            'user'=>$user,
+        ]);
+        //gọi layout để nhúng nội dung view create vừa lấy đc
+        //require_once 'views/users/create.php';
+        require_once 'views/layouts/main.php';
+    }
+
     public function index(){
         $user_model= new User();
         //do có sử dụng phân trang nên sẽ khai báo mảng các params
@@ -188,20 +295,20 @@ class UserController extends Controller
         require_once "views/users/create.php";
     }
 
-    public function showFormEdit(){
-//        echo "<pre>";
-//        print_r($_POST);
-//        echo "</pre>";
-        if (!isset($_POST['user_id']) || !is_numeric($_POST['user_id']) ){
-            $_SESSION['error'] = 'ID không hợp lệ';
-            header('Location: index.php?controller=users&action=index');
-            exit();
-        }
-        $id=$_POST['user_id'];
-        $user_model= new User();
-        $users=$user_model->getById($id);
-        $this->title="Form sửa tài khoản";
-        require_once "views/users/edit.php";
-    }
+//    public function showFormEdit(){
+////        echo "<pre>";
+////        print_r($_POST);
+////        echo "</pre>";
+//        if (!isset($_POST['user_id']) || !is_numeric($_POST['user_id']) ){
+//            $_SESSION['error'] = 'ID không hợp lệ';
+//            header('Location: index.php?controller=users&action=index');
+//            exit();
+//        }
+//        $id=$_POST['user_id'];
+//        $user_model= new User();
+//        $users=$user_model->getById($id);
+//        $this->title="Form sửa tài khoản";
+//        require_once "views/users/edit.php";
+//    }
 
 }
