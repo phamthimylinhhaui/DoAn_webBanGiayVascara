@@ -42,4 +42,38 @@ VALUES (:title, :image, :description, :username,CURRENT_TIMESTAMP)";
 
         return $orders;
     }
+
+    public function getById($id){
+        $obj_select = $this->connection
+            ->prepare("SELECT * FROM news WHERE id=$id");
+
+        $obj_select->execute();
+        return $obj_select->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function update($id)
+    {
+        $obj_update = $this->connection
+            ->prepare("UPDATE news SET title=:title, image=:image, description=:description, username=:username,
+                updated_at=CURRENT_TIMESTAMP() WHERE id = $id");
+        $arr_update = [
+            ':title' => $this->title,
+            ':image' => $this->image,
+            ':description' => $this->description,
+            ':username' => $this->username,
+        ];
+
+
+        return $obj_update->execute($arr_update);
+    }
+
+    public function delete($id){
+        $obj_delete = $this->connection
+            ->prepare("DELETE FROM news WHERE id = $id");
+        return $obj_delete->execute();
+    }
+    public function countNew(){
+        $new= $this->getAll();
+        return count($new);
+    }
 }

@@ -81,4 +81,9 @@ VALUES (:name, :avatar, :description, :status,CURRENT_TIMESTAMP)";
 
         return $categories;
     }
+
+    public function countCategory(){
+        $category= $this->getAll();
+        return count($category);
+    }
 }

@@ -27,13 +27,10 @@
         </th>
 
         <th>
-            Tên người dùng
+            Tên khách hàng
         </th>
         <th>
             Số điện thoại
-        </th>
-        <th>
-            Tổng
         </th>
         <th>
             Trạng thái
@@ -70,20 +67,19 @@
             </td>
 
             <td>
-                <?php echo $order['price_total'];?>
-            </td>
-
-            <td>
             <?php
             $status='';
-            if ( isset($order['payment_status']) )
+            if ( isset($order['status']) )
             {
-                switch ($order['payment_status']) {
+                switch ($order['status']) {
                     case 0:
-                        $status = 'chưa thanh toán';
+                        $status = 'đang giao';
                         break;
                     case 1:
-                        $status = 'đã thanh toán';
+                        $status = 'đã giao';
+                        break;
+                    case 2:
+                        $status = 'hủy đơn';
                         break;
                 }
             }
@@ -97,14 +93,14 @@
 
             <td >
                 <!-- Button trigger modal for show-form-edit-user -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"  onclick="showFormEdit(<?php echo $user['id']; ?>)">
+                <a type="button" class="btn btn-info" href="index.php?controller=order&action=detail&id=<?php echo $order['id'];?>"  >
                     Chi tiết
-                </button>
+                </a>
 
 
-                <button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo $user['id']; ?>)">
-                    Xóa
-                </button>
+                <a type="button" class="btn btn-primary" href="index.php?controller=order&action=edit&id=<?php echo $order['id'] ?>" title="sửa trạng thái">
+                    Sửa trạng thái
+                </a>
 
             </td>
         </tr>

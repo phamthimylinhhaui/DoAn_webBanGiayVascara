@@ -164,6 +164,25 @@ class UserController extends Controller
 
     }
 
+    public function delete(){
+        if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+            $_SESSION['error'] = 'ID không hợp lệ';
+            header('Location: index.php?controller=product');
+            exit();
+        }
+
+        $id = $_GET['id'];
+        $user_model = new User();
+        $is_delete = $user_model->delete($id);
+        if ($is_delete) {
+            $_SESSION['success'] = 'Xóa dữ liệu thành công';
+        } else {
+            $_SESSION['error'] = 'Xóa dữ liệu thất bại';
+        }
+        header('Location: index.php?controller=user');
+        exit();
+    }
+
     public function showFormCreate(){
         $this->title="Form thêm mới tài khoản";
         require_once "views/users/create.php";

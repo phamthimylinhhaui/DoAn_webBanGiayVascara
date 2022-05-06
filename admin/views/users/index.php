@@ -122,9 +122,10 @@
                 </button>
 
 
-                <button type="button" class="btn btn-danger" onclick="deleteUser(<?php echo $user['id']; ?>)">
+                <a type="button" class="btn btn-danger" href="index.php?controller=user&action=delete&id=<?php echo $user['id'] ?>" title="Xóa"
+                   onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này')">
                     Xóa
-                </button>
+                </a>
 
             </td>
         </tr>

@@ -52,6 +52,12 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
         return $obj_select->fetchColumn();
     }
 
+    public function delete($id)
+    {
+        $obj_delete = $this->connection
+            ->prepare("DELETE FROM users WHERE id = $id");
+        return $obj_delete->execute();
+    }
 
     public function countUser(){
        $users= $this->getAll();

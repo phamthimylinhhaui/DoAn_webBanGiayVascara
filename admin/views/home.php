@@ -31,7 +31,7 @@
                                              <i class="fab fa-buffer"></i>
                                         </span>
                     <div class="dash-widget-info">
-                        <h3>40</h3>
+                        <h3><?php echo $amount_product;?></h3>
                         <h6 class="text-muted">Sản phẩm</h6>
                     </div>
                 </div>
@@ -46,8 +46,8 @@
                                             <i class="far fa-credit-card"></i>
                                         </span>
                     <div class="dash-widget-info">
-                        <h3>2.606.900 vnđ</h3>
-                        <h6 class="text-muted">Doanh thu</h6>
+                        <h3><?php echo number_format($revenue);?> VNĐ</h3>
+                        <h6 class="text-muted">Doanh thu tháng này</h6>
                     </div>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                                            <i class="fas fa-shopping-cart"></i>
                                         </span>
                     <div class="dash-widget-info">
-                        <h3>15320</h3>
+                        <h3><?php echo $amount_order;?></h3>
                         <h6 class="text-muted">Đơn hàng</h6>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                                             <i class="fas fa-user-shield"></i>
                                         </span>
                     <div class="dash-widget-info">
-                        <h3>20</h3>
+                        <h3><?php echo $amount_category;?></h3>
                         <h6 class="text-muted">Danh mục</h6>
                     </div>
                 </div>
@@ -93,7 +93,7 @@
                                             <i class="fas fa-clock"></i>
                                         </span>
                     <div class="dash-widget-info">
-                        <h3>200</h3>
+                        <h3><?php echo $amount_new;?></h3>
                         <h6 class="text-muted">Tin tức</h6>
                     </div>
                 </div>

@@ -13,4 +13,12 @@ class Feedback extends Model
 
         return $orders;
     }
+
+    public function getById($id){
+        $obj_select = $this->connection
+            ->prepare("SELECT * FROM feedbacks WHERE id = $id");
+
+        $obj_select->execute();
+        return $obj_select->fetch(PDO::FETCH_ASSOC);
+    }
 }

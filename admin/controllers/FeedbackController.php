@@ -16,4 +16,17 @@ class FeedbackController extends Controller
         ]);
         require_once 'views/layouts/main.php';
     }
+
+    public function detail(){
+        $id = $_GET['id'];
+        $feedback_model = new Feedback();
+        $feedback = $feedback_model->getById($id);
+
+        $this->title="Chi tiết phản hồi";
+        $this->content = $this->render('views/feedbacks/detail.php',[
+            'feedback' => $feedback,
+        ]);
+        require_once 'views/layouts/main.php';
+    }
+
 }

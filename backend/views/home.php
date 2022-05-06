@@ -2,7 +2,7 @@
 <div class="page-header">
     <div class="row">
         <div class="col-12">
-            <h3 class="page-title">Xin chào Nhân Viên</h3>
+            <h3 class="page-title">Xin chào ADMIN</h3>
         </div>
     </div>
 </div>
@@ -28,10 +28,10 @@
             <div class="card-body">
                 <div class="dash-widget-header">
                                         <span class="dash-widget-icon bg-primary">
-                                            <i class="fas fa-user-shield"></i>
+                                             <i class="fab fa-buffer"></i>
                                         </span>
                     <div class="dash-widget-info">
-                        <h3>40</h3>
+                        <h3><?php echo $amount_product;?></h3>
                         <h6 class="text-muted">Sản phẩm</h6>
                     </div>
                 </div>
@@ -46,11 +46,12 @@
                                             <i class="far fa-credit-card"></i>
                                         </span>
                     <div class="dash-widget-info">
-                        <h3>2.606.900 vnđ</h3>
-                        <h6 class="text-muted">Doanh thu</h6>
+                        <h3><?php echo number_format($revenue);?> VNĐ</h3>
+                        <h6 class="text-muted">Doanh thu tháng này</h6>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+

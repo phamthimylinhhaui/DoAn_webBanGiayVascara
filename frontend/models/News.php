@@ -42,4 +42,12 @@ VALUES (:title, :image, :description, :username,CURRENT_TIMESTAMP)";
 
         return $orders;
     }
+
+    public function getById($id){
+        $obj_select = $this->connection
+            ->prepare("SELECT * FROM news WHERE id=$id");
+
+        $obj_select->execute();
+        return $obj_select->fetch(PDO::FETCH_ASSOC);
+    }
 }

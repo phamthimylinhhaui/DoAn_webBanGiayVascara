@@ -67,9 +67,9 @@
 
             <td >
                 <!-- Button trigger modal for show-form-edit-user -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit-user"  onclick="showFormEdit(<?php echo $user['id']; ?>)">
+                <a type="button" class="btn btn-primary" href="index.php?controller=feedback&action=detail&id=<?php echo $feedback['id']; ?>" >
                     xem chi tiết
-                </button>
+                </a>
 
             </td>
         </tr>

@@ -29,12 +29,15 @@
         <th>
             Tiêu đề
         </th>
-        <th>
-            Mô tả
-        </th>
+
         <th>
             Hình ảnh
         </th>
+
+        <th>
+            Mô tả
+        </th>
+
         <th>
             Người tạo
         </th>
@@ -66,14 +69,16 @@
             </td>
 
             <td>
-                <?php echo $news['description'];?>
+                <img id="" style="width: 150px;height: 150px; border-radius: 50%" src="<?php
+                if (isset($news['image']))
+                    echo $news['image'];?>" class="avatar">
             </td>
 
             <td>
-                <img id="image" src="<?php
-                if (isset($user['image']))
-                    echo $user['image'];?>" class="avatar">
+                <?php echo $news['description'];?>
             </td>
+
+
 
 
             <td>
@@ -85,6 +90,10 @@
             </td>
 
             <td >
+                <a type="button" class="btn btn-info"  href="index.php?controller=new&action=detail&id=<?php echo $news['id']?>">
+                    Xem
+                </a>
+
                 <a type="button" class="btn btn-primary"  href="index.php?controller=new&action=edit&id=<?php echo $news['id']?>">
                     Sửa
                 </a>

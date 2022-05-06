@@ -41,65 +41,54 @@
     }
 </style>
 <div class=" container main">
-    <div class="row">
-        <div class="col5">
-            <img src="https://www.vascara.com/uploads/page/2020/June/29/16531593402366-small.png" alt="khuyến mại">
-            <h3>Singles’ Day - Ưu đãi 21% Tất Cả Sản Phẩm Mới</h3>
-            <div class="inf-km1"> Tận hưởng niềm vui độc thân vẫn trọn vẹn, hãy cùng Vascara khai tiệc Singles’ Day 11.11 với chương trình Giảm ngay 21% Tất Cả Sản Phẩm...
+    <div class="col-lg-12 order-lg-2 order-1">
+
+        <div class="tab-content text-charcoal pt-8">
+            <div class="tab-pane fade show active" id="list-view" role="tabpanel"
+                 aria-labelledby="list-view-tab">
+                <div class="product-grid-view row">
+                    <?php
+                    foreach ($news AS $new){
+                        ?>
+                        <div class="col-xl-4 col-lg-4 col-sm-6 pt-6">
+                            <div class="product-item">
+                                <div class="product-img img-zoom-effect">
+                                    <a href="index.php?controller=new&action=detail&id=<?php echo $new['id'] ?>">
+                                        <img class="img-full"
+                                             src="<?php echo $new['image'] ?>"
+                                             alt="Tin tức 1 ">
+                                    </a>
+                                    <div class="product-add-action">
+                                        <ul>
+                                            <li>
+                                                <a href="index.php?controller=new&action=detail&id=<?php echo $new['id'] ?>">
+                                                    <i class="pe-7s-look"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <a class="product-name dieuchinhcss main-color-vascara" href="index.php?controller=new&action=detail&id=<?php echo $new['id'] ?>"><?php echo $new['title']?></a>
+                                    <div class="price-box pb-1">
+                                        <span class="new-price"><?php echo $new['description']?></span>
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <?php
+                    }
+                    ?>
+
+
+                </div>
             </div>
         </div>
-        <div class="col5">
-            <img src="https://www.vascara.com/uploads/page/2020/June/29/16531593402366-small.png" alt="khuyến mại">
-            <h3>Singles’ Day - Ưu đãi 21% Tất Cả Sản Phẩm Mới</h3>
-            <div class="inf-km1"> Tận hưởng niềm vui độc thân vẫn trọn vẹn, hãy cùng Vascara khai tiệc Singles’ Day 11.11 với chương trình Giảm ngay 21% Tất Cả Sản Phẩm...
-            </div>
-        </div>
-        <div class="col5">
-            <img src="https://www.vascara.com/uploads/page/2020/June/29/16531593402366-small.png" alt="khuyến mại">
-            <h3>Singles’ Day - Ưu đãi 21% Tất Cả Sản Phẩm Mới</h3>
-            <div class="inf-km1"> Tận hưởng niềm vui độc thân vẫn trọn vẹn, hãy cùng Vascara khai tiệc Singles’ Day 11.11 với chương trình Giảm ngay 21% Tất Cả Sản Phẩm...
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col5">
-            <img src="https://www.vascara.com/uploads/page/2020/June/29/16531593402366-small.png" alt="khuyến mại">
-            <h3>Singles’ Day - Ưu đãi 21% Tất Cả Sản Phẩm Mới</h3>
-            <div class="inf-km1"> Tận hưởng niềm vui độc thân vẫn trọn vẹn, hãy cùng Vascara khai tiệc Singles’ Day 11.11 với chương trình Giảm ngay 21% Tất Cả Sản Phẩm...
-            </div>
-        </div>
-        <div class="col5">
-            <img src="https://www.vascara.com/uploads/page/2020/June/29/16531593402366-small.png" alt="khuyến mại">
-            <h3>Singles’ Day - Ưu đãi 21% Tất Cả Sản Phẩm Mới</h3>
-            <div class="inf-km1"> Tận hưởng niềm vui độc thân vẫn trọn vẹn, hãy cùng Vascara khai tiệc Singles’ Day 11.11 với chương trình Giảm ngay 21% Tất Cả Sản Phẩm...
-            </div>
-        </div>
-        <div class="col5">
-            <img src="https://www.vascara.com/uploads/page/2020/June/29/16531593402366-small.png" alt="khuyến mại">
-            <h3>Singles’ Day - Ưu đãi 21% Tất Cả Sản Phẩm Mới</h3>
-            <div class="inf-km1"> Tận hưởng niềm vui độc thân vẫn trọn vẹn, hãy cùng Vascara khai tiệc Singles’ Day 11.11 với chương trình Giảm ngay 21% Tất Cả Sản Phẩm...
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col5">
-            <img src="https://www.vascara.com/uploads/page/2020/June/29/16531593402366-small.png" alt="khuyến mại">
-            <h3>Singles’ Day - Ưu đãi 21% Tất Cả Sản Phẩm Mới</h3>
-            <div class="inf-km1"> Tận hưởng niềm vui độc thân vẫn trọn vẹn, hãy cùng Vascara khai tiệc Singles’ Day 11.11 với chương trình Giảm ngay 21% Tất Cả Sản Phẩm...
-            </div>
-        </div>
-        <div class="col5">
-            <img src="https://www.vascara.com/uploads/page/2020/June/29/16531593402366-small.png" alt="khuyến mại">
-            <h3>Singles’ Day - Ưu đãi 21% Tất Cả Sản Phẩm Mới</h3>
-            <div class="inf-km1"> Tận hưởng niềm vui độc thân vẫn trọn vẹn, hãy cùng Vascara khai tiệc Singles’ Day 11.11 với chương trình Giảm ngay 21% Tất Cả Sản Phẩm...
-            </div>
-        </div>
-        <div class="col5">
-            <img src="https://www.vascara.com/uploads/page/2020/June/29/16531593402366-small.png" alt="khuyến mại">
-            <h3>Singles’ Day - Ưu đãi 21% Tất Cả Sản Phẩm Mới</h3>
-            <div class="inf-km1"> Tận hưởng niềm vui độc thân vẫn trọn vẹn, hãy cùng Vascara khai tiệc Singles’ Day 11.11 với chương trình Giảm ngay 21% Tất Cả Sản Phẩm...
-            </div>
-        </div>
+
     </div>
 
+  
 </div>

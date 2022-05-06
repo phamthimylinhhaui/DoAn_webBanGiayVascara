@@ -109,13 +109,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pagination-area pt-10">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination justify-content-center">
-                                <div class="pagination-container"><ul class="pagination"><li class="page-link page-item active"><a>1</a></li><li class="page-link page-item"><a href="/Category/Detail/1?page=2">2</a></li><li class="page-link page-item PagedList-skipToNext"><a href="/Category/Detail/1?page=2" rel="next">»</a></li></ul></div>
-                            </ul>
-                        </nav>
-                    </div>
+<!--                    <div class="pagination-area pt-10">-->
+<!--                        <nav aria-label="Page navigation example">-->
+<!--                            <ul class="pagination justify-content-center">-->
+<!--                                <div class="pagination-container"><ul class="pagination"><li class="page-link page-item active"><a>1</a></li><li class="page-link page-item"><a href="/Category/Detail/1?page=2">2</a></li><li class="page-link page-item PagedList-skipToNext"><a href="/Category/Detail/1?page=2" rel="next">»</a></li></ul></div>-->
+<!--                            </ul>-->
+<!--                        </nav>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>

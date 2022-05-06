@@ -30,7 +30,7 @@
 
                         <div class="form-group">
                             <label>Mô tả</label>
-                            <input class="form-control text-box single-line" data-val="true" data-val-length="The field category_name must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="Tên danh mục không được để trống" id="category_name" name="description" type="text" value="" />
+                            <textarea class="form-control text-box single-line" data-val="true" id="new_description" name="description" ></textarea>
                             <span class="field-validation-valid text-danger" data-valmsg-for="category_name" data-valmsg-replace="true"></span>
                         </div>
 

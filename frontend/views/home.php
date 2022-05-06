@@ -127,26 +127,26 @@
 
 
 
-            <div class="col-lg-12">
-                <div class="pagination-area pt-10">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <div class="pagination-container">
-                                <ul class="pagination">
-                                    <li class="page-link page-item active"><a>1</a></li>
-                                    <li class="page-link page-item"><a href="/?page=2">2</a></li>
-                                    <li class="page-link page-item"><a href="/?page=3">3</a></li>
-                                    <li class="page-link page-item"><a href="/?page=4">4</a></li>
-                                    <li class="page-link page-item"><a href="/?page=5">5</a></li>
-                                    <li class="page-link page-item PagedList-skipToNext"><a href="/?page=2"
-                                                                                            rel="next">»</a></li>
-                                </ul>
-                            </div>
-
-                        </ul>
-                    </nav>
-                </div>
-            </div>
+<!--            <div class="col-lg-12">-->
+<!--                <div class="pagination-area pt-10">-->
+<!--                    <nav aria-label="Page navigation example">-->
+<!--                        <ul class="pagination justify-content-center">-->
+<!--                            <div class="pagination-container">-->
+<!--                                <ul class="pagination">-->
+<!--                                    <li class="page-link page-item active"><a>1</a></li>-->
+<!--                                    <li class="page-link page-item"><a href="/?page=2">2</a></li>-->
+<!--                                    <li class="page-link page-item"><a href="/?page=3">3</a></li>-->
+<!--                                    <li class="page-link page-item"><a href="/?page=4">4</a></li>-->
+<!--                                    <li class="page-link page-item"><a href="/?page=5">5</a></li>-->
+<!--                                    <li class="page-link page-item PagedList-skipToNext"><a href="/?page=2"-->
+<!--                                                                                            rel="next">»</a></li>-->
+<!--                                </ul>-->
+<!--                            </div>-->
+<!---->
+<!--                        </ul>-->
+<!--                    </nav>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
     </div>
 </div>
