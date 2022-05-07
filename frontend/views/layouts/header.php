@@ -41,15 +41,15 @@
                     <div class="header-search-area d-none d-lg-block" style="width:630px">
 
 
-                        <div class="header-searchbox">
-
+                    <!--index.php?controller=product&action=findByName-->
+                        <form class="header-searchbox" action="index.php?controller=product&action=findByName" method="POST">
                             <input class="input-field" type="text" placeholder="Nhập sản phầm tìm kiếm"
-                                   id="keyword">
-                            <button class="btn btn-outline-whisper btn-primary-hover" type="submit"
-                                    onclick="onSearch()">
-                                <i class="pe-7s-search"></i>
-                            </button>
-                        </div>
+                                   id="keyword" name="keyword">
+                            <input type="submit" value="Tìm Kiếm"  class="btn btn-primary btn-outline-whisper" style="background-color:#F15B67; color: white; font-size: 18px; ">
+
+                            </input>
+                        </form>
+
 
 
 

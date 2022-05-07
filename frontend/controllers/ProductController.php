@@ -48,4 +48,21 @@ class ProductController extends Controller
 
         require_once "views/layouts/main.php";
     }
+
+    public function findByName(){
+
+        $keyword = $_POST['keyword'];
+
+        $product_model = new Product();
+        $products = $product_model->findByName($keyword);
+
+
+
+        $this->content=$this->render('views/products/find.php',[
+            'products'=>$products
+        ]);
+        $this->title="sản phẩm tìm kiếm";
+
+        require_once "views/layouts/main.php";
+    }
 }

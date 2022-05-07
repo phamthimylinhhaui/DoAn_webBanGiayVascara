@@ -104,4 +104,19 @@ VALUES (:category_id, :name, :avatar,:price,:amount,:height,:type, :description,
 
         return $products;
     }
+
+    public function findByName($name){
+        $obj_select = $this->connection
+            ->prepare("SELECT products.*, categories.name AS category_name FROM products 
+                        INNER JOIN categories ON categories.id = products.category_id
+                        WHERE products.name LIKE '%".$name."%'    ");
+
+        $arr_select = [];
+        $obj_select->execute($arr_select);
+
+
+        $products = $obj_select->fetchAll(PDO::FETCH_ASSOC);
+
+        return $products;
+    }
 }
