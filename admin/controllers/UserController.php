@@ -78,7 +78,11 @@ class UserController extends Controller
                 //gọi model để thực  hiện lưu
                 //gán các giá trị từ form cho các thuộc tính của category
                 $user_model->username = $username;
+
+                //luôn luôn cần mã hóa mật khẩu trước khi lưu vào cơ sở dữ liệu
+                $password=password_hash($password, PASSWORD_BCRYPT);
                 $user_model->password = $password;
+
                 $user_model->role = $role;
                 $user_model->date_of_birth = $date_of_birth;
                 $user_model->name = $fullname;
@@ -202,7 +206,7 @@ class UserController extends Controller
                 } else {
                     $_SESSION['error'] = 'Update dữ liệu thất bại';
                 }
-                header('Location: index.php?controller=user');
+                header('Location: index.php?controller=user&action=index');
                 exit();
             }
         }

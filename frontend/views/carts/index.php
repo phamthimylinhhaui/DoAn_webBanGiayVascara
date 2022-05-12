@@ -1,129 +1,78 @@
+<!--Timeline items start -->
+<div class="timeline-items container" style="margin:30px auto; ">
+    <h2>Giỏ hàng của bạn</h2>
+    <form action="" method="post">
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <th width="40%">Tên sản phẩm</th>
+                <th width="12%">Số lượng</th>
+                <th>Giá</th>
+                <th>Thành tiền</th>
+                <th></th>
+            </tr>
 
-
-<main class="main-content">
-
-    <div class="breadcrumb-area breadcrumb-height" data-bg-image="https://theme.hstatic.net/1000317997/1000499273/14/ms_banner_img1.jpg?v=198">
-        <div class="container h-100">
-            <div class="row h-100">
-                <div class="col-lg-12">
-                    <div class="breadcrumb-item">
-                        <div class="main-breadcrum">
-                            <h2 class="breadcrumb-heading">Giỏ hàng</h2>
-                            <ul style="text-align:center">
-                                <li>
-                                    <a href="/">Trang chủ <i class="pe-7s-angle-right"></i></a>
-                                </li>
-                                <li>Giỏ hàng</li>
-                            </ul>
+            <?php
+            // Khai báo tổng giá trị đơn hàng
+            $total_cart = 0;
+            foreach ($_SESSION['cart']
+                     AS $product_id => $cart): ?>
+                <tr>
+                    <td>
+                        <img class="product-avatar img-responsive"
+                             src="<?php echo $cart['avatar'] ?>"
+                             width="80">
+                        <div class="content-product">
+                            <a href="chi-tiet-san-pham/samsung-s9/<?php echo $product_id?>"
+                               class="content-product-a">
+                              <?php echo $cart['name']; ?>
+                            </a>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </td>
+                    <td>
+                        <!--  cần khéo léo đặt name cho input số lượng, để khi xử lý submit form update lại giỏ hànTin nổi bậtg sẽ đơn giản hơn    -->
+                        <input type="number" min="0"
+                               name="<?php echo $product_id; ?>"
+                               class="product-amount form-control"
+                               value="<?php echo $cart['quantity']; ?>">
+                    </td>
+                    <td>
+                      <?php echo number_format($cart['price']) ?>
+                    </td>
+                    <td>
+                      <?php
+                      $total_item = $cart['price'] * $cart['quantity'];
+                      // Cộng dồn để lấy ra tổng giá trị đơn hàng
+                      $total_cart += $total_item;
+                      echo number_format($total_item);
+                      ?>
+                    </td>
+                    <td>
+                        <a class="content-product-a"
+                           href="">
+<!--                            xoa-san-pham/<?php echo $product_id; ?>.html-->
+                            Xóa
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
 
-
-    <section class="inner-section checkout-part">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 alert-info" style="border-top: 3px solid #f26974 !important;">
-                    <div class="account-card">
-                        <div class="account-title">
-                            <h4>Đơn hàng của bạn</h4>
-                            <a onclick="clearCart()" href="/Checkout" style="color: #f15b67 ; border: 2px solid #f15b67; background: transparent;">Xoá giỏ hàng</a>
-                        </div>
-                        <div class="account-content"  id="cart">
-                            <div class="table-scroll">
-                                <table class="table-list">
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">STT</th>
-                                        <th scope="col">Ảnh</th>
-                                        <th scope="col">Tên</th>
-                                        <th scope="col">Giá</th>
-                                        <th scope="col">Số lượng</th>
-                                        <th scope="col">Hành động</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="list-product-cart">
-                                    <tr>
-                                        <td class="table-serial">
-                                            <h6>1</h6>
-                                        </td>
-                                        <td class="table-image"><img src="" alt="product"></td>
-                                        <td class="table-name">
-                                            <h6>Sản phẩm số 1</h6>
-                                        </td>
-                                        <td class="table-price">
-                                            <h6>70,500 vnđ</h6>
-                                        </td>
-                                        <td class="table-quantity">
-                                            <div class="cart-action-group" style="justify-content: center">
-                                                <div class="product-action">
-                                                    <button class="action-minus" onclick="minus(20)" title="Giảm">
-                                                        <i class="icofont-minus"></i>
-                                                    </button>
-                                                    <input class="action-input" style="text-align:right;" title="Số lượng" id="qty20" type="number" readonly="" name="quantity" value="1">
-                                                    <button class="action-plus" onclick="plus(20)" title="Tăng">
-                                                        <i class="icofont-plus"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="table-action">
-                                            <a class="view" href="index.php?controller=product&action=detail&id=10">
-                                                <i class="pe-7s-look"></i></a>
-                                            <a class="trash" href="/Checkout" onclick="deleteInCart(20,70500,1)"><i class="pe-7s-trash"></i></a></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td class="table-serial">
-                                            <h6>1</h6>
-                                        </td>
-                                        <td class="table-image"><img src="" alt="product"></td>
-                                        <td class="table-name">
-                                            <h6>Sản phẩm số 1</h6>
-                                        </td>
-                                        <td class="table-price">
-                                            <h6>70,500 vnđ</h6>
-                                        </td>
-                                        <td class="table-quantity">
-                                            <div class="cart-action-group" style="justify-content: center">
-                                                <div class="product-action">
-                                                    <button class="action-minus" onclick="minus(20)" title="Giảm">
-                                                        <i class="icofont-minus"></i>
-                                                    </button>
-                                                    <input class="action-input" style="text-align:right;" title="Số lượng" id="qty20" type="number" readonly="" name="quantity" value="1">
-                                                    <button class="action-plus" onclick="plus(20)" title="Tăng">
-                                                        <i class="icofont-plus"></i>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td class="table-action">
-                                            <a class="view" href="index.php?controller=product&action=detail&id=10">
-                                                <i class="pe-7s-look"></i></a>
-                                            <a class="trash" href="/Checkout" onclick="deleteInCart(20,70500,1)"><i class="pe-7s-trash"></i></a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="checkout-charge mt-5 mb-3">
-                                <ul>
-                                    <li><span>Tổng tiền: </span><span id="hdk-total">0 vnđ</span></li>
-                                </ul>
-                            </div>
-                            <form action="/Invoice/Index" method="post">
-                                <input hidden id="ids" name="ids" />
-                                <button type="submit" class="checkout-proced btn btn-inline dieuchinhbg">Thanh toán</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-</main>
+            <tr>
+                <td colspan="5" style="text-align: center">
+                    Tổng giá trị đơn hàng:
+                    <span class="product-price">
+             <?php echo number_format($total_cart); ?> vnđ
+            </span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" class="product-payment">
+                    <input type="submit" name="submit" value="Cập nhật lại giá" class="btn btn-primary">
+                    <a href="thanh-toan.html" class="btn btn-success" style="background: #F15B67;">Đến trang thanh toán</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<!--Timeline items end -->

@@ -39,6 +39,13 @@
         padding-right: 33px;
         line-height: 1.5;
     }
+    .dieuchinhcss {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box !important;
+        -webkit-line-clamp: 1; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
 </style>
 <div class=" container main">
     <div class="col-lg-12 order-lg-2 order-1">
@@ -70,7 +77,7 @@
                                 </div>
                                 <div class="product-content">
                                     <a class="product-name dieuchinhcss main-color-vascara" href="index.php?controller=new&action=detail&id=<?php echo $new['id'] ?>"><?php echo $new['title']?></a>
-                                    <div class="price-box pb-1">
+                                    <div class="price-box pb-1 product-name dieuchinhcss main-color-vascara">
                                         <span class="new-price"><?php echo $new['description']?></span>
                                     </div>
 

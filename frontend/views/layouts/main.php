@@ -12,36 +12,7 @@
     </style>
 </head>
 <body>
-<!--thông báo lỗi-->
-    <section class="content-header">
-    <?php if (isset($_SESSION['error'])): ?>
-        <div class="alert alert-danger">
-            <?php
-            echo $_SESSION['error'];
-            unset($_SESSION['error']);
-            ?>
-        </div>
-    <?php endif; ?>
 
-    <?php if (!empty($this->error)): ?>
-        <div class="alert alert-danger">
-            <?php
-            echo $this->error;
-            ?>
-        </div>
-    <?php endif; ?>
-
-    <?php if (isset($_SESSION['success'])): ?>
-        <div class="alert alert-success">
-            <?php
-            echo $_SESSION['success'];
-            unset($_SESSION['success']);
-            ?>
-        </div>
-    <?php endif; ?>
-    <!--        <div class="alert alert-danger">Lỗi validate</div>-->
-    <!--        <p class="alert alert-success">Thành công</p>-->
-</section>
 
 <!--header-->
     <?php require_once "views/layouts/header.php"?>
@@ -197,6 +168,46 @@
 <!--end header-->
 
 <!--content-->
+<!--thông báo lỗi-->
+<section class="content-header">
+    <?php if (isset($_SESSION['error'])): ?>
+        <div class="alert alert-danger">
+            <?php
+            echo $_SESSION['error'];
+            unset($_SESSION['error']);
+            ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (!empty($this->error)): ?>
+        <div class="alert alert-danger">
+            <?php
+            echo $this->error;
+            ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['success'])): ?>
+        <div class="alert alert-success">
+            <?php
+            echo $_SESSION['success'];
+            unset($_SESSION['success']);
+            ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['alert'])): ?>
+        <div class="alert alert-success">
+            <?php
+            echo $_SESSION['alert'];
+            unset($_SESSION['alert']);
+            ?>
+        </div>
+    <?php endif; ?>
+
+    <!--        <div class="alert alert-danger">Lỗi validate</div>-->
+    <!--        <p class="alert alert-success">Thành công</p>-->
+</section>
     <?php echo $this->content;?>
 <!--end content-->
 
@@ -295,19 +306,19 @@
                         <ul class="widget-list-item">
 
                             <li>
-                                <a href="javascript:void(0)">Đăng Nhập</a>
+                                <a href="index.php?controller=auth&action=logout">Đăng Nhập</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)">Đăng Kí</a>
+                                <a href="index.php?controller=auth&action=register">Đăng Kí</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)"> Đăng Xuất</a>
+                                <a href="index.php?controller=auth&action=logout"> Đăng Xuất</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)"> Giỏ Hàng</a>
+                                <a href="index.php?controller=cart&action=index"> Giỏ Hàng</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0)"> Quản lí tài khoản</a>
+                                <a href="index.php?controller=user&action=profile"> Quản lí tài khoản</a>
                             </li>
                         </ul>
                     </div>

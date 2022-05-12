@@ -95,20 +95,20 @@
                         </a>
                         <div class="product-add-action">
                             <ul>
-                                <li>
-                                    <a type="button" href="index.php?controller=cart&action=index" onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
-                                        <i class="pe-7s-cart"></i>
-                                    </a>
+                                <li class="add-to-cart" data-id="<?php echo $product['id']; ?>"  >
+                                    <a type="button" href="#"  title="Thêm vào giỏ" class="product-add"><i class="pe-7s-cart"></i></a>                                   </a>
                                 </li>
 
-                                <li>
+                                <li >
                                     <a href="index.php?controller=product&action=detail&id=<?php echo $product['id'] ?>">
                                         <i class="pe-7s-look"></i>
                                     </a>
                                 </li>
                             </ul>
+
                         </div>
                     </div>
+
                     <div class="product-content">
                         <a class="product-name dieuchinhcss main-color-vascara" href="index.php?controller=product&action=detail&id=<?php echo $product['id'] ?>"><?php echo $product['name']?></a>
                         <div class="price-box pb-1">
@@ -123,7 +123,12 @@
             <?php
             }
             ?>
-
+        <table class="col-4" style="margin: 30px auto"><tr>
+                <td colspan="7" >1</td>
+                <td colspan="7" >2</td>
+                <td colspan="7" >3</td>
+                <td colspan="7" >Next</td>
+            </tr></table>
 
 
 

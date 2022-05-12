@@ -30,7 +30,7 @@
 
                         <div class="form-group">
                             <label>Mô tả</label>
-                            <textarea class="form-control text-box single-line" data-val="true" id="new_description" name="description" ></textarea>
+                            <textarea class="form-control text-box single-line" data-val="true" id="description" name="description" ></textarea>
                             <span class="field-validation-valid text-danger" data-valmsg-for="category_name" data-valmsg-replace="true"></span>
                         </div>
 
@@ -52,9 +52,13 @@
             </div>
         </div>
     </div>
+
+
+
     <script>
         var loadFile = function (event) {
             var image = document.getElementById("output");
             image.src = URL.createObjectURL(event.target.files[0])
         }
+
     </script>

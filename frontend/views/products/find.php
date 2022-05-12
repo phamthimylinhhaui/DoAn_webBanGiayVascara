@@ -73,10 +73,14 @@
                                                 </a>
                                                 <div class="product-add-action">
                                                     <ul>
-                                                        <li>
-                                                            <a type="button" href="index.php?controller=cart&action=index" onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">
-                                                                <i class="pe-7s-cart"></i>
-                                                            </a>
+<!--                                                        <li>-->
+<!--                                                            <a type="button" href="index.php?controller=cart&action=index" onclick="addToCart(40, 10)" title="Thêm vào giỏ" class="product-add">-->
+<!--                                                                <i class="pe-7s-cart"></i>-->
+<!--                                                            </a>-->
+<!--                                                        </li>-->
+
+                                                        <li class="add-to-cart" data-id="<?php echo $product['id']; ?>"  >
+                                                            <a type="button" href="#"  title="Thêm vào giỏ" class="product-add"><i class="pe-7s-cart"></i></a>                                   </a>
                                                         </li>
 
                                                         <li>

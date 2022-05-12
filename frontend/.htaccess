@@ -1,0 +1,5 @@
+RewriteEngine On
+
+RewriteRule gio-hang-cua-ban.html index.php?controller=cart&action=index
+
+RewriteRule thanh-toan.html index.php?controller=payment&action=index

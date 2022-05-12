@@ -53,4 +53,72 @@
         border-style: solid;
         text-align: center;
     }
+    .avatar{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+
+/*    hiển thị tên người dùng*/
+    .dropbtn {
+        background-color: #3498DB;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    .dropup {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropup-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        bottom: 50px;
+        z-index: 1;
+    }
+
+    .dropup-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropup-content a:hover {background-color: #ccc}
+
+    .dropup:hover .dropup-content {
+        display: block;
+    }
+
+    .dropup:hover .dropbtn {
+        background-color: #2980B9;
+    }
+/*    giỏ hàng*/
+    .ajax-message {
+        position: fixed;
+        right: 12px;
+        top: 35px;
+        z-index: 10000000;
+        border: 1px solid #21431ecc;
+        color: #21431ecc;
+        padding: 4px 12px;
+        border-radius: 4px;
+        background: #fff;
+        transition: all 0.3s ease 0s;
+        opacity: 0;
+    }
+
+    .ajax-message-active {
+        opacity: 1;
+    }
+
+    .ajax-message {
+        right: 1vw;
+    }
+
 </style>

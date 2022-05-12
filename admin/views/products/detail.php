@@ -5,7 +5,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col">
-                        <h3 class="page-title">Sửa sản sản phẩm</h3>
+                        <h3 class="page-title">Chi tiết sản sản phẩm</h3>
                     </div>
                 </div>
             </div>
@@ -63,12 +63,12 @@
                         <div class="form-group">
                             <label for="">Phù hợp sử dụng</label>
 
-                            <input readonly class="form-control text-box single-line" id="product_description" name="description" type="text" value="<?php echo $product['description'];?>" />
+                            <input readonly class="form-control text-box single-line" id="product_description" name="description1" type="text" value="<?php echo $product['description'];?>" />
                             <span class="field-validation-valid text-danger" data-valmsg-for="product_description" data-valmsg-replace="true"></span>
                         </div>
                         <div class="modal-footer">
                             <div style="margin-bottom:5px;">
-                                <input onclick="history.go(-1);" type="button" value="Back" class="btn btn-danger">
+                                <input onclick="history.go(-1);" type="button" value="Quay lại" class="btn btn-danger">
                             </div>
                         </div>
                     </form>

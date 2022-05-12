@@ -24,46 +24,25 @@ class CategoryController extends Controller
             $name = $_POST['name'];
             $description = $_POST['description'];
             $status = $_POST['status'];
-            $avatar_files = $_FILES['avatar'];
 
             //check validate
             if (empty($name)) {
                 $this->error = 'Cần nhập tên';
             } //trường hợp có ảnh upload lên, thì cần kiểm tra điều kiện là file ảnh
-            else if ($avatar_files['error'] == 0) {
-                $extension_arr = ['jpg', 'jpeg', 'gif', 'png'];
-                $extension = pathinfo($avatar_files['name'], PATHINFO_EXTENSION);
-                $extension = strtolower($extension);
-                $file_size_mb = $avatar_files['size'] / 1024 / 1024;
-                //làm tròn theo đơn vị thập phân
-                $file_size_mb = round($file_size_mb, 2);
 
-                if (!in_array($extension, $extension_arr)) {
-                    $this->error = 'Cần upload file định dạng ảnh';
-                } else if ($file_size_mb >= 2) {
-                    $this->error = 'File upload không được lớn hơn 2Mb';
-                }
-            }
 
             //nếu ko có lỗi thì tiến hành lưu dữ liệu và upload ảnh nếu có
             $avatar = '';
             if (empty($this->error)) {
                 //xử lý upload ảnh nếu có
-                if ($avatar_files['error'] == 0) {
-                    $dir_uploads = '../publish/avatar_category';
-                    if (!file_exists($dir_uploads)) {
-                        mkdir($dir_uploads);
-                    }
-                    $avatar = time() . '-' . $avatar_files['name'];
-                    move_uploaded_file($avatar_files['tmp_name'], $dir_uploads . '/' . $avatar);
-                }
+
                 //lưu vào csdl
                 //gọi model để thực  hiện lưu
                 $category_model = new Category();
                 //gán các giá trị từ form cho các thuộc tính của category
                 $category_model->name = $name;
-                $filename="http://localhost/DoAn/publish/avatar_category/".$avatar;
-                $category_model->avatar = $filename;
+               // $filename="http://localhost/DoAn/publish/avatar_category/".$avatar;
+              //  $category_model->avatar = $filename;
                 $category_model->description = $description;
                 $category_model->status = $status;
 

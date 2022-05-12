@@ -30,17 +30,32 @@
                             <p style="padding-top:10px;margin: 5px; text-align: center">Chào mừng bạn đã đến với VASCARA. Vui lòng nhập đúng thông tin để đăng nhập</p>
                         </div>
 
-                        <form class="user-form" action="/Profile/Login" method="post" >
-                            <input name="__RequestVerificationToken" type="hidden" value="d241dueAWhoCRsiW_n_4ie97WZmU8hTFd8UJxPFTBRJYinpgg5qIcy4861Sebs3iCD3ubNgpLsR6TBIinOlXi1S7BZL6Mi4-QhRp-uRmQDA1" />
+                        <form class="user-form" method="POST" id="login-form" action="">
                             <div class="form-group">
-                                <input type="email" name="email" class="form-control" placeholder="Nhập địa chỉ email" />
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label for="username" class="input-group-text">Tên đăng nhập</label>
+                                    </div>
+                                    <input class="form-control text-box single-line username" data-val="true" id="username" style="height: 38px;"
+                                           name="username" type="text" value=""/>
+                                </div>
+                                <span class="help-block login-username-validate"/>
                             </div>
                             <div class="form-group">
-                                <input type="password" name="password" class="form-control" placeholder="Nhập mật khẩu" />
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label for="password" class="input-group-text">Mật khẩu</label>
+                                    </div>
+                                    <input class="form-control text-box single-line password" data-val="true" id="password" style="height: 38px;"
+                                           name="password" type="password"/>
+                                </div>
+                                <span class="help-block login-password-validate"/>
                             </div>
-                            <div class="form-button">
-                                <button type="submit" style="border-color: #f15b67; font-size: 18px; ">Đăng nhập</button>
-                            </div>
+
+                            <input type="submit" name="submit" value="Đăng nhập" class="btn btn-primary"
+                                   style="background: #F15B67;width: 435px;"/>
+                            <br />
+
                         </form>
 
                         <div class="user-form-remind">

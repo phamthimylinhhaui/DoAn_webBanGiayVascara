@@ -71,9 +71,9 @@
                         </div>
 
                         <div class="modal-footer">
-                            <input type="submit" class="btn btn-primary" name="submit"  value="Save"/>
+                            <input type="submit" class="btn btn-primary" name="submit"  value="Lưu"/>
                             <div style="margin-bottom:5px;">
-                                <input onclick="history.go(-1);" type="button" value="Back" class="btn btn-danger">
+                                <input onclick="history.go(-1);" type="button" value="Quay lại" class="btn btn-danger">
                             </div>
                         </div>
                     </form>

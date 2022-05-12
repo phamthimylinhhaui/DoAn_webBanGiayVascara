@@ -45,6 +45,39 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
         return $obj_insert->execute($arr_insert);
     }
 
+    public function update($id)
+    {
+        $obj_update = $this->connection
+            ->prepare("UPDATE users SET role=:role, date_of_birth=:date_of_birth, name=:name, email=:email, avatar=:avatar, phone=:phone,
+            updated_at=CURRENT_TIMESTAMP() WHERE id = $id");
+        $arr_update = [
+            ':role' => $this->role,
+            ':date_of_birth' => $this->date_of_birth,
+            ':name' => $this->name,
+            ':email' => $this->email,
+            ':avatar' => $this->avatar,
+            ':phone' => $this->phone
+        ];
+
+//        echo "<pre>";
+//        print_r($arr_update);
+//        echo "</pre>";
+//        die();
+
+        return $obj_update->execute($arr_update);
+    }
+
+    public function getUserByUsernameStaff($username){
+        $sql_select_one = "SELECT * FROM users WHERE username = :username and role =1";
+        $obj_select_one = $this->connection->prepare($sql_select_one);
+        $selects = [
+            ':username' => $username
+        ];
+        $obj_select_one->execute($selects);
+        $user = $obj_select_one->fetch(PDO::FETCH_ASSOC);
+        return $user;
+    }
+
     public function getUserByUsername($username){
         $obj_select = $this->connection
             ->prepare("SELECT COUNT(id) FROM users WHERE username='$username'");
@@ -52,6 +85,12 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
         return $obj_select->fetchColumn();
     }
 
+    public function delete($id)
+    {
+        $obj_delete = $this->connection
+            ->prepare("DELETE FROM users WHERE id = $id");
+        return $obj_delete->execute();
+    }
 
     public function countUser(){
        $users= $this->getAll();

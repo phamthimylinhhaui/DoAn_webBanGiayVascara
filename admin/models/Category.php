@@ -15,8 +15,8 @@ class Category extends Model
     //insert dữ liệu vào bảng categories
     public function insert() {
         $sql_insert =
-            "INSERT INTO categories(`name`, `avatar`, `description`, `status`,`created_at`)
-VALUES (:name, :avatar, :description, :status,CURRENT_TIMESTAMP)";
+            "INSERT INTO categories(`name`, `description`, `status`,`created_at`)
+VALUES (:name, :description, :status,CURRENT_TIMESTAMP)";
 
         //cbi đối tượng truy vấn
         $obj_insert = $this->connection
@@ -24,7 +24,6 @@ VALUES (:name, :avatar, :description, :status,CURRENT_TIMESTAMP)";
         //gán giá trị thật cho các placeholder
         $arr_insert = [
             ':name' => $this->name,
-            ':avatar' => $this->avatar,
             ':description' => $this->description,
             ':status' => $this->status
         ];

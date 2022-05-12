@@ -7,4 +7,7 @@
 <!--Main JS (Common Activation Codes)-->
 <script src="assets/js/main.min.js"></script>
 
-<script src="assets/js1/custom/carttt.js"></script>
+
+<!--my script-->
+<script src="assets/js/script.js"></script>
+

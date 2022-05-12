@@ -28,17 +28,23 @@ VALUES (:title, :image, :description, :username,CURRENT_TIMESTAMP)";
             ':description' => $this->description,
             ':username' => $this->username
         ];
+//        echo "<pre>";
+//        print_r($arr_insert);
+//        echo "<pre>";
+//        die();
+
 
         return $obj_insert->execute($arr_insert);
     }
 
     public function getAll(){
         $obj_select = $this->connection
-            ->prepare("SELECT * FROM news ");
+            ->prepare("SELECT * FROM news ORDER BY created_at DESC ");
 
         $arr_select = [];
         $obj_select->execute($arr_select);
         $orders = $obj_select->fetchAll(PDO::FETCH_ASSOC);
+
 
         return $orders;
     }

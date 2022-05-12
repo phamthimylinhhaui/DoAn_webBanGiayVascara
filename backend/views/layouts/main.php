@@ -21,35 +21,7 @@
     <div class="main-wrapper">
         <div class="message-wrap content-wrap content-wrapper">
             <!-- Content Header (Page header) -->
-            <section class="content-header">
-                <?php if (isset($_SESSION['error'])): ?>
-                    <div class="alert alert-danger">
-                        <?php
-                        echo $_SESSION['error'];
-                        unset($_SESSION['error']);
-                        ?>
-                    </div>
-                <?php endif; ?>
 
-                <?php if (!empty($this->error)): ?>
-                    <div class="alert alert-danger">
-                        <?php
-                        echo $this->error;
-                        ?>
-                    </div>
-                <?php endif; ?>
-
-                <?php if (isset($_SESSION['success'])): ?>
-                    <div class="alert alert-success">
-                        <?php
-                        echo $_SESSION['success'];
-                        unset($_SESSION['success']);
-                        ?>
-                    </div>
-                <?php endif; ?>
-                <!--        <div class="alert alert-danger">Lỗi validate</div>-->
-                <!--        <p class="alert alert-success">Thành công</p>-->
-            </section>
         </div>
         <!-- Header -->
         <div class="header">
@@ -79,9 +51,17 @@
                                      width="40"
                                      alt="Admin" />
                             </span>
+
+                        <?php
+                        $username='';
+                        if (isset($_SESSION['user1'])){}
+                        $username=$_SESSION['user1']['username'];
+                        ?>
+                        <span><?php echo $username;?></span>
+
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="index.html">Đăng xuất</a>
+                        <a class="dropdown-item" href="index.php?controller=auth1&action=logout">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
@@ -95,7 +75,41 @@
 
 
         <div class="page-wrapper">
+
+
+
             <div class="content container-fluid">
+                <section class="content-header">
+                    <?php if (isset($_SESSION['error'])): ?>
+                        <div class="alert alert-danger">
+                            <?php
+                            echo $_SESSION['error'];
+                            unset($_SESSION['error']);
+                            ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($this->error)): ?>
+                        <div class="alert alert-danger">
+                            <?php
+                            echo $this->error;
+                            ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (isset($_SESSION['success'])): ?>
+                        <div class="alert alert-success">
+                            <?php
+                            echo $_SESSION['success'];
+                            unset($_SESSION['success']);
+                            ?>
+                        </div>
+                    <?php endif; ?>
+                    <!--        <div class="alert alert-danger">Lỗi validate</div>-->
+                    <!--        <p class="alert alert-success">Thành công</p>-->
+                </section>
+
+
                 <?php echo $this->content; ?>
             </div>
         </div>

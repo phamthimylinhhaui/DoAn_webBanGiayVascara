@@ -21,12 +21,7 @@
                             <span class="field-validation-valid text-danger" data-valmsg-for="category_name" data-valmsg-replace="true"></span>
                         </div>
 
-                        <div class="form-group">
-                            <label class="col-md-12">Ảnh danh mục</label>
-                            <img id="output" class="img-rounded" width="100" height="100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6xzz1W1CI__132MzHFECHPDSvupa4j2K32szHkZpmLIO69CxsXfqkGZZeBW1aw-6gHvw&usqp=CAU" alt="Ảnh"  style="display:block; margin:0 auto"/>
-                            <p class="text-center"><label for="ufile" style="cursor:pointer;"><i class="fas fa-upload"></i> Chọn file ảnh</label></p>
-                            <input name="avatar" id="ufile" type="file" style="display:none;" onchange="loadFile(event)" />
-                        </div>
+
 
                         <div class="form-group">
                             <label>Mô tả</label>
@@ -56,9 +51,11 @@
                             </select>
                         </div>
 
-                        <div class="mt-4">
-                            <input type="submit" class="btn btn-primary" name="submit" value="Save"/>
-                            <input type="reset" class="btn btn-secondary" name="submit" value="Reset"/>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn btn-primary" name="submit"  value="Lưu"/>
+                            <div style="margin-bottom:5px;">
+                                <input onclick="history.go(-1);" type="button" value="Quay lại" class="btn btn-danger">
+                            </div>
                         </div>
                     </form>
                     <!-- Form -->

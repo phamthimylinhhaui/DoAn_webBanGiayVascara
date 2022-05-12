@@ -27,7 +27,7 @@
 
                         <div class="form-group">
                             <label>Số điện thoại</label>
-                            <input readonly class="form-control text-box single-line"  id="category_name" name="description" type="text" value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : $feedback['phone']; ?>" />
+                            <input readonly class="form-control text-box single-line"  id="category_name" name="description1" type="text" value="<?php echo isset($_POST['phone']) ? $_POST['phone'] : $feedback['phone']; ?>" />
                             <span class="field-validation-valid text-danger" data-valmsg-for="category_name" data-valmsg-replace="true"></span>
                         </div>
 
@@ -38,7 +38,7 @@
 
                         <div class="form-group">
                             <label>Ngày tạo</label>
-                            <input readonly class="form-control text-box single-line"  id="category_name" name="description" type="text" value="<?php echo isset($_POST['created_at']) ? $_POST['created_at'] : $feedback['created_at']; ?>" />
+                            <input readonly class="form-control text-box single-line"  id="category_name" name="description1" type="text" value="<?php echo isset($_POST['created_at']) ? $_POST['created_at'] : $feedback['created_at']; ?>" />
                             <span class="field-validation-valid text-danger" data-valmsg-for="category_name" data-valmsg-replace="true"></span>
                         </div>
                         <div class="modal-footer">

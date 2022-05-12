@@ -83,7 +83,7 @@ VALUES (:category_id, :name, :avatar,:price,:amount,:height,:type, :description,
 
     public function getAll(){
         $obj_select = $this->connection
-            ->prepare("SELECT * FROM products ");
+            ->prepare("SELECT * FROM products LIMIT 8 ");
 
         $arr_select = [];
         $obj_select->execute($arr_select);

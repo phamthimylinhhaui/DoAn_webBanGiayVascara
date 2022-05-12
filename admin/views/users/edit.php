@@ -47,7 +47,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1">Email</span>
                 </div>
-                <input  type="text" class="form-control email" name="email" value="<?php echo $user['email'];?>">
+                <input  type="email" class="form-control email" name="email" value="<?php echo $user['email'];?>">
 
             </div>
             <span class="help-block email-validate" />

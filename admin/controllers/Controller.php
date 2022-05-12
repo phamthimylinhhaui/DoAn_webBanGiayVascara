@@ -9,6 +9,13 @@ class Controller
 
     public function __construct()
     {
+        // nếu user chưa đăng nhập thì không cho phép truy cập và các chức năng đăng nhập r mới dc vào
+        $controller=$_GET['controller'];
+        if (!isset($_SESSION['user2']) && $controller != 'auth2'){
+            $_SESSION['error']="Bạn chưa đăng nhập";
+            header("Location: index.php?controller=auth2&action=login");
+            exit();
+        }
     }
 
     public function render($file,$variables = array()){

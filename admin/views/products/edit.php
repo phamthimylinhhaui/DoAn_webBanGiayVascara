@@ -66,14 +66,14 @@
                         <div class="form-group">
                             <label for="">Phù hợp sử dụng</label>
 
-                            <input class="form-control text-box single-line" id="product_description" name="description" type="text" value="<?php echo $product['description'];?>" />
+                            <input class="form-control text-box single-line" id="product_description" name="description1" type="text" value="<?php echo $product['description'];?>" />
                             <span class="field-validation-valid text-danger" data-valmsg-for="product_description" data-valmsg-replace="true"></span>
                         </div>
 
                         <div class="modal-footer">
-                            <input type="submit" class="btn btn-primary" name="submit"  value="Save"/>
+                            <input type="submit" class="btn btn-primary" name="submit"  value="Lưu"/>
                             <div style="margin-bottom:5px;">
-                                <input onclick="history.go(-1);" type="button" value="Back" class="btn btn-danger">
+                                <input onclick="history.go(-1);" type="button" value="Quay lại" class="btn btn-danger">
                             </div>
                         </div>
                     </form>

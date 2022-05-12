@@ -37,40 +37,81 @@
                         <p style="padding-top:10px">Chào mừng bạn đã đến với VASCARA. Vui lòng nhập đúng thông tin để đăng kí</p>
                     </div>
 
-                    <form class="user-form" action="/Profile/Register" method="post" style="text-align: center">
-                        <input name="__RequestVerificationToken" type="hidden" value="eMvLpvasMxMUfPYL1EzKI2ueN8FRxx81F5prsG3CWSYLA1r0buVor1VrheHgIgykmfqM3S3YVOYdDrFZFgeWMp7soxC5Vqn_Ys1IWAG6lhU1" />
+                    <form class="user-form" action="" method="POST" style="text-align: center">
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="username" class="input-group-text">Tên đăng nhập</label>
+                                </div>
+                                <input class="form-control text-box single-line username" data-val="true" id="username" style="height: 38px;margin-top: 0px;"
+                                       name="username" type="text" value=""/>
+                            </div>
+                            <span class="help-block username-validate"/>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="password" class="input-group-text">Mật khẩu</label>
+                                </div>
+                                <input class="form-control text-box single-line password" data-val="true" id="password" style="height: 38px;margin-top: 0px;"
+                                       name="password" type="password"/>
+                            </div>
+                            <span class="help-block password-validate"/>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for=password" class="input-group-text">Gõ lại mật khẩu</label>
+                                </div>
+                                <input class="form-control text-box single-line password re-password" name="password_confirm" style="height: 38px; margin-top: 0px;"
+                                       data-val="true" id="re-password" type="password"/>
+                            </div>
+                            <span class="help-block re-password-validate"/>
+                        </div>
 
-                        <div class="form-group">
-                            <input class="form-control text-box single-line" data-val="true" data-val-length="The field full_name must be a string with a maximum length of 50." data-val-length-max="50" data-val-required="Tên không được để trống!" id="full_name" name="full_name" placeholder="Nhập họ tên" type="text" value="" />
-                            <span class="field-validation-valid text-danger" data-valmsg-for="full_name" data-valmsg-replace="true"></span>
+                        <div class="row form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="email" class="input-group-text">Email</label>
+                                </div>
+                                <input class="form-control text-box single-line email" data-val="true" id="email" style="height: 38px;margin-top: 0px;"
+                                       name="email" type="email" value=""/>
+                            </div>
+                            <span class="help-block email-validate"/>
                         </div>
-                        <div class="form-group">
-                            <input class="form-control text-box single-line" data-val="true" data-val-length="The field email must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="Email không được để trống!" id="email" name="email" placeholder="Nhập địa chỉ mail" type="email" value="" />
-                            <span class="field-validation-valid text-danger" data-valmsg-for="email" data-valmsg-replace="true"></span>
+
+                        <div class="row form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="date_of_birth" class="input-group-text">Ngày sinh</label>
+                                </div>
+                                <input class="form-control text-box single-line date-of-birth" data-val="true" style="height: 38px; margin-top: 0px;"
+                                       id="date-of-birth" name="date_of_birth"
+                                       type="date" value=""/>
+                            </div>
+                            <span class="help-block date-of-birth-validate"/>
                         </div>
-                        <div class="form-group">
-                            <input class="form-control text-box single-line password" data-val="true" data-val-length="The field password must be a string with a maximum length of 200." data-val-length-max="200" data-val-minlength="Mật khẩu tối thiểu 6 ký tự." data-val-minlength-min="6" data-val-required="Mật khẩu không được để trống!" id="password" name="password" placeholder="Nhập mật khẩu" type="password" />
-                            <span class="field-validation-valid text-danger" data-valmsg-for="password" data-valmsg-replace="true"></span>
+
+                        <div class="row form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="name" class="input-group-text">Họ và tên</label>
+                                </div>
+                                <input class="form-control text-box single-line name" data-val="true" id="name" style="height: 38px; margin-top: 0px;"
+                                       name="name" type="text" value=""/>
+                            </div>
+                            <span class="help-block fullname-validate"/>
                         </div>
-                        <div class="form-group">
-                            <input class="form-control text-box single-line password" data-val="true" data-val-equalto="Mật khẩu không khớp." data-val-equalto-other="*.password" data-val-minlength="Mật khẩu tối thiểu 6 ký tự." data-val-minlength-min="6" data-val-required="Mật khẩu nhập lại không được để trống!" id="confirm_password" name="confirm_password" placeholder="Nhập lại mật khẩu" type="password" />
-                            <span class="field-validation-valid text-danger" data-valmsg-for="confirm_password" data-valmsg-replace="true"></span>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control text-box single-line" data-val="true" data-val-length="Số điện thoại không đúng định dạng" data-val-length-max="11" data-val-maxlength="Số điện thoại không đúng định dạng" data-val-maxlength-max="11" data-val-required="Số điện thoại không được để trống!" id="phone_number" name="phone_number" placeholder="Nhập số điện thoại" type="text" value="" />
-                            <span class="field-validation-valid text-danger" data-valmsg-for="phone_number" data-valmsg-replace="true"></span>
-                        </div>
-                        <div class="form-group">
-                            <input class="form-control text-box single-line" data-val="true" data-val-length="The field address must be a string with a maximum length of 100." data-val-length-max="100" data-val-required="Địa chỉ không được để trống!" id="address" name="address" placeholder="Nhập địa chỉ" type="text" value="" />
-                            <span class="field-validation-valid text-danger" data-valmsg-for="address" data-valmsg-replace="true"></span>
-                        </div>
-                        <div class="form-button">
-                            <button type="submit" style="border-color: #f15b67; font-size: 18px; ">Đăng ký</button>
-                        </div>
+
+                        <input type="submit" name="submit" value="Đăng ký" class="btn btn-primary"
+                               style="background: #F15B67;width: 290px;"/>
+                        <br />
                     </form>
-                    <div class="user-form-remind">
-                        <p>Bạn đã có tài khoản?<a href="index.php?controller=auth&action=login" class="text-danger">Đăng nhập</a></p>
-                    </div>
+                        <div class="user-form-remind">
+                            <p>Bạn đã có tài khoản?<a href="index.php?controller=auth&action=login" class="text-danger">Đăng nhập</a></p>
+                        </div>
+                </div>
+
 
                 </div>
             </div>

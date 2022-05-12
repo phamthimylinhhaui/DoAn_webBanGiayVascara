@@ -2,8 +2,8 @@
 session_start();
 date_default_timezone_set("Asia/Ho_Chi_Minh");
 
-$controller=isset($_GET['controller']) ? $_GET['controller'] :'home';
-$action= isset($_GET['action']) ? $_GET['action'] : 'index';
+$controller=isset($_GET['controller']) ? $_GET['controller'] :'auth1';
+$action= isset($_GET['action']) ? $_GET['action'] : 'login';
 
 $controller=ucfirst($controller);
 $controller.='Controller';

@@ -40,7 +40,7 @@ class OrderController extends Controller
     public function edit(){
         if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
             $_SESSION['error'] = 'ID không hợp lệ';
-            header('Location: index.php?controller=product');
+            header('Location: index.php?controller=order&action=index');
             exit();
         }
 
@@ -63,7 +63,7 @@ class OrderController extends Controller
             } else {
                 $_SESSION['error'] = 'Update dữ liệu thất bại';
             }
-            header('Location: index.php?controller=order');
+            header('Location: index.php?controller=order&action=index');
             exit();
 
         }

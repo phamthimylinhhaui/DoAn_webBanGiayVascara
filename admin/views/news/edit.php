@@ -5,7 +5,7 @@
             <div class="page-header">
                 <div class="row">
                     <div class="col">
-                        <h3 class="page-title">Thêm tin tức</h3>
+                        <h3 class="page-title">Sửa tin tức</h3>
                     </div>
                 </div>
             </div>

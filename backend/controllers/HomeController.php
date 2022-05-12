@@ -23,7 +23,7 @@ class HomeController extends Controller
             //'amount_new'=>$amount_new,
             'revenue'=>$revenue,
         ]);
-        $this->title="trang chủ";
+        $this->title="trang chủ - staff";
 
         require_once "views/layouts/main.php";
     }

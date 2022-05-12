@@ -107,7 +107,7 @@
 
 
                 <a type="button" class="btn btn-danger" href="index.php?controller=category&action=delete&id=<?php echo $category['id'] ?>" title="Xóa"
-                   onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này')">
+                   onclick="return confirm('Xóa danh mục này, sản phẩm của danh mục này cũng sẽ bị xóa.Bạn có chắc chắn muốn xóa không?')">
                     Xóa
                 </a>
 

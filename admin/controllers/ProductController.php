@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function edit(){
         if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
             $_SESSION['error'] = 'ID không hợp lệ';
-            header('Location: index.php?controller=product');
+            header('Location: index.php?controller=product&action=index');
             exit();
         }
 
@@ -35,7 +35,7 @@ class ProductController extends Controller
             $amount = $_POST['amount'];
             $height = $_POST['height'];
             $type = $_POST['type'];
-            $description= $_POST['description'];
+            $description= $_POST['description1'];
 
             //xử lý validate
             if (empty($name)) {
@@ -92,7 +92,7 @@ class ProductController extends Controller
                 } else {
                     $_SESSION['error'] = 'Update dữ liệu thất bại';
                 }
-                header('Location: index.php?controller=product');
+                header('Location: index.php?controller=product&action=index');
                 exit();
             }
         }

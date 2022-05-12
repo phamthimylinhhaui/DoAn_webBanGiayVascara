@@ -43,14 +43,21 @@
                        class="dropdown-toggle user-link nav-link"
                        data-toggle="dropdown">
                             <span class="user-img">
+                                <?php
+                                $username='';
+                                if (isset($_SESSION['user2'])){}
+                                    $username=$_SESSION['user2']['username'];
+                                ?>
+
                                 <img class="rounded-circle"
                                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdeeVu5CWReDBpxNGN9QHVsVT6l33OLK4mIfcy6L-obDRXBxgGiSu3w44JIfj-MU9eu3Y&usqp=CAU"
                                      width="40"
                                      alt="Admin" />
+                                    <span><?php echo $username;?></span>
                             </span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="index.php?controller=auth&action=login">Đăng xuất</a>
+                        <a class="dropdown-item" href="index.php?controller=auth2&action=logout">Đăng xuất</a>
                     </div>
                 </li>
                 <!-- /User Menu -->

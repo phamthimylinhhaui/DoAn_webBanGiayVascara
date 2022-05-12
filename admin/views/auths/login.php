@@ -5,7 +5,7 @@
 <!-- Mirrored from truelysell-admin.dreamguystech.com/template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 21 Jun 2021 14:22:17 GMT -->
 <head>
     <?php require_once "views/layouts/css.php"?>
-
+    <title>Admin</title>
 </head>
 
 <body>
@@ -22,23 +22,54 @@
                             </a>
                         </div>
                     </div>
+
+                    <section class="content-header">
+                        <?php if (isset($_SESSION['error'])): ?>
+                            <div class="alert alert-danger">
+                                <?php
+                                echo $_SESSION['error'];
+                                unset($_SESSION['error']);
+                                ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (!empty($this->error)): ?>
+                            <div class="alert alert-danger">
+                                <?php
+                                echo $this->error;
+                                ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php if (isset($_SESSION['success'])): ?>
+                            <div class="alert alert-success">
+                                <?php
+                                echo $_SESSION['success'];
+                                unset($_SESSION['success']);
+                                ?>
+                            </div>
+                        <?php endif; ?>
+                        <!--        <div class="alert alert-danger">Lỗi validate</div>-->
+                        <!--        <p class="alert alert-success">Thành công</p>-->
+                    </section>
+
                     <div class="login-header">
 
                         <h3 style="text-align: center; margin:30px 20px">Hệ thống quản trị <span class="text-vascara">VASCARA</span></h3>
                     </div>
-                    <form  action="index.php?controller=home&action=index">
+                    <form  action="" method="POST">
 
                         <div class="form-group">
                             <label class="control-label">Email</label>
-                            <input name="email" class="form-control" type="text" placeholder="Nhập địa chỉ email">
+                            <input name="username" class="form-control" type="text" placeholder="Nhập tên tài khoản">
                         </div>
                         <div class="form-group mb-4">
                             <label class="control-label">Mật khẩu</label>
                             <input name="password" class="form-control" type="password" placeholder="Nhập mật khẩu">
                         </div>
                         <div class="text-center">
-                            <button class="btn bg-vascara btn-block account-btn" >Đăng nhập</button>
-                        </div>
+                            <input type="submit" name="submit" value="Đăng nhập" class="btn btn-primary"
+                                   style="background: #F15B67;width: 435px;"/>                        </div>
                     </form>
                 </div>
             </div>
