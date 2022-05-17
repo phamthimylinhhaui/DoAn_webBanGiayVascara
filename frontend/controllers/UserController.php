@@ -121,7 +121,9 @@ class UserController extends Controller
         require_once 'views/layouts/main.php';
     }
 
+    public function list_order(){
 
+    }
 
     public function profile(){
         $id = $_SESSION['user']['id'];

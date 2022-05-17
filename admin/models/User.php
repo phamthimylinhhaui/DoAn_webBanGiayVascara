@@ -128,7 +128,7 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
 
         // tạo câu truy vấn
         // gán chuỗi search nếu có thêm câu truy vấn
-        $sql_select_all="SELECT * FROM users $str_search";
+        $sql_select_all="SELECT * FROM users $str_search ";
 
         // chuẩn bị đối tượng truy vấn
         $obj_select_all=$this->connection->prepare($sql_select_all);
@@ -143,7 +143,7 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
         $page=$params['page'];
         //bản ghi bắt đầu
         $start=($page-1)* $limit;
-        $obj_select=$this->connection->prepare("SELECT * FROM users LIMIT $start,$limit");
+        $obj_select=$this->connection->prepare("SELECT * FROM users ORDER BY id DESC LIMIT $start,$limit ");
         //do PDO coi tất cả các param luôn là 1 string, nên cần sử dụng bindValue / bindParam cho các tham số start và limit
         //$obj_select->bindParam(':limit',$limit,PDO::PARAM_INT);
         //$obj_select->bindParam(':start',$start,PDO::PARAM_INT);

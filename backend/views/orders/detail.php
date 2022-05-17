@@ -82,10 +82,10 @@
             <!-- /thong tin -->
             <table class="table table-bordered table-hover">
                 <tr>
-                    <th style="width: 100px;">Ảnh</th>
-                    <th>Tên</th>
-                    <th>Giá</th>
-                    <th>Số lượng</th>
+                    <th style="width: 100px;">Photo</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Number</th>
                 </tr>
                     <?php
                         foreach ($orderdetails AS $orderdetail){

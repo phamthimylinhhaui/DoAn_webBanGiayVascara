@@ -18,7 +18,7 @@
 </div>
 <!-- End alert -->
 
-<table class="table users-table table-hover" id="list-users">
+<table class="table users-table table-hover" id="list-feedbacks">
     <thead>
     <tr>
         <th>
@@ -79,15 +79,18 @@
 
     </tbody>
 </table>
-<!-- Modal for show-form-edit-user -->
-<div class="modal fade" id="edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content edit-user">
+<!--datatable-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script>
+<?php include "views/feedbacks/script.php"?>
+<script>
+    $(document).ready(function(){
+        // alert("Thành công",'success');
 
-        </div>
-    </div>
-</div>
-
+        initDatatable($('#list-feedbacks'),true);
+    });
+</script>
 
 
 

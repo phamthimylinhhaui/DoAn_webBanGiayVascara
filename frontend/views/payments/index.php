@@ -17,11 +17,7 @@ require_once 'helpers/Helper.php';
                 </div>
                 <div class="form-group">
                     <label>SĐT</label>
-                    <input type="number" min="0" name="mobile" value="" class="form-control" placeholder="">
-                </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" min="0" name="email" value="" class="form-control" placeholder="">
+                    <input type="text"  name="phone" value="" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Ghi chú thêm</label>
@@ -29,7 +25,7 @@ require_once 'helpers/Helper.php';
                 </div>
                 <div class="form-group">
                     <label>Chọn phương thức thanh toán</label> <br />
-                    <input type="radio" name="method" checked value="1" /> Thanh toán khi nhận hàng <br />
+                    <input type="radio"  checked value="1" /> Thanh toán khi nhận hàng <br />
                 </div>
             </div>
             <div class="col-md-7 col-sm-8" style="line-height: 3;>

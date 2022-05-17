@@ -79,7 +79,7 @@
     <div class="container">
         <div class="section-title text-center pb-55">
             <span class="sub-title text-primary main-color-vascara">OUR PRODUCTS</span>
-            <h2 class="title mb-0">Sản phẩm của chúng tôi</h2>
+            <h2 class="title mb-0">Sản phẩm mới nhất</h2>
         </div>
         <div class="row">
         <?php
@@ -123,12 +123,12 @@
             <?php
             }
             ?>
-        <table class="col-4" style="margin: 30px auto"><tr>
-                <td colspan="7" >1</td>
-                <td colspan="7" >2</td>
-                <td colspan="7" >3</td>
-                <td colspan="7" >Next</td>
-            </tr></table>
+<!--        <table class="col-4" style="margin: 30px auto"><tr>-->
+<!--                <td colspan="7" >1</td>-->
+<!--                <td colspan="7" >2</td>-->
+<!--                <td colspan="7" >3</td>-->
+<!--                <td colspan="7" >Next</td>-->
+<!--            </tr></table>-->
 
 
 

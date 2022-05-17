@@ -124,7 +124,8 @@
                                 <ul class="quantity-with-btn pb-7 add-to-cart" data-id="<?php echo $product['id']; ?>">
 
 
-                                    <a type="button" href="" class="product-add btn btn-custom-size lg-size btn-primary btn-secondary-hover rounded-0" style="background: #f15b67; border-radius: 10px !important; border: 2px solid #fff;" onclick="addToCart(20, 98)" title="Add to Cart">
+                                    <a type="button" href="" class="product-add btn btn-custom-size lg-size btn-primary btn-secondary-hover rounded-0"
+                                       style="background: #f15b67; border-radius: 10px !important; border: 2px solid #fff;" onclick="addToCart(20, 98)" title="Add to Cart" >
                                         <i class="pe-7s-shopbag" style="padding-right:10px"></i><span>Thêm vào giỏ hàng</span>
                                     </a>
 

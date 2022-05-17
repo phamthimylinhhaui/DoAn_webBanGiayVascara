@@ -22,7 +22,7 @@
 </div>
 <!-- End alert -->
 
-<table class="table users-table table-hover" id="list-users">
+<table class="table users-table table-hover" id="list-categories">
     <thead>
     <tr>
         <th>
@@ -101,10 +101,9 @@
 
             <td >
                 <!-- Button trigger modal for show-form-edit-user -->
-                <a type="button" class="btn btn-primary"  href="index.php?controller=category&action=edit&id=<?php echo $category['id']?>">
+                <a type="button" class="btn btn-info"  href="index.php?controller=category&action=edit&id=<?php echo $category['id']?>">
                     Sửa
                 </a>
-
 
                 <a type="button" class="btn btn-danger" href="index.php?controller=category&action=delete&id=<?php echo $category['id'] ?>" title="Xóa"
                    onclick="return confirm('Xóa danh mục này, sản phẩm của danh mục này cũng sẽ bị xóa.Bạn có chắc chắn muốn xóa không?')">
@@ -119,7 +118,18 @@
 
     </tbody>
 </table>
+<!--datatable-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script>
+<?php include "views/categories/script.php"?>
+<script>
+    $(document).ready(function(){
+        // alert("Thành công",'success');
 
+        initDatatable($('#list-products'),true);
+    });
+</script>
 
 
 

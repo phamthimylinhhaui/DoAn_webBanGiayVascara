@@ -49,7 +49,7 @@ class Auth2Controller extends Controller
         //logout admin
         unset($_SESSION['user2']);
         $_SESSION['success']="Đăng xuất thành công";
-        header("Location: index.php?controller=auth2&action=index");
+        header("Location: index.php?controller=auth2&action=login");
         exit();
     }
 }

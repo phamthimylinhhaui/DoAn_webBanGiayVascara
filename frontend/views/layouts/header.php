@@ -79,6 +79,7 @@ if (isset($_SESSION['user'])) {
                                     <?php if (isset($_SESSION['user'])): ?>
                                         <div class="dropup-content" style="width: 170px;">
                                             <a href="index.php?controller=user&action=profile">Quản Lý tài khoản</a>
+                                            <a href="index.php?controller=user&action=list_order">Đơn hàng</a>
                                             <a href="index.php?controller=auth&action=logout">Đăng xuất</a>
                                         </div>
                                     <?php endif; ?>

@@ -78,7 +78,7 @@
         position: absolute;
         background-color: #f1f1f1;
         min-width: 160px;
-        bottom: 50px;
+        bottom: -50px;
         z-index: 1;
     }
 

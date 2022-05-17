@@ -20,7 +20,7 @@
 </div>
 <!-- End alert -->
 
-<table class="table users-table table-hover" id="list-users">
+<table class="table users-table table-hover" id="list-news">
     <thead>
     <tr>
         <th>
@@ -94,7 +94,7 @@
                     Xem
                 </a>
 
-                <a type="button" class="btn btn-primary"  href="index.php?controller=new&action=edit&id=<?php echo $news['id']?>">
+                <a type="button" class="btn btn-info"  href="index.php?controller=new&action=edit&id=<?php echo $news['id']?>">
                     Sửa
                 </a>
 
@@ -112,14 +112,18 @@
 
     </tbody>
 </table>
-<!-- Modal for show-form-edit-user -->
-<div class="modal fade" id="edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content edit-user">
+<!--datatable-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script>
+<?php include "views/news/script.php"?>
+<script>
+    $(document).ready(function(){
+        // alert("Thành công",'success');
 
-        </div>
-    </div>
-</div>
+        initDatatable($('#list-news'),true);
+    });
+</script>
 
 
 

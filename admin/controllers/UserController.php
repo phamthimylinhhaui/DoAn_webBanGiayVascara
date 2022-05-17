@@ -226,7 +226,7 @@ class UserController extends Controller
         $user_model= new User();
         //do có sử dụng phân trang nên sẽ khai báo mảng các params
         $params=[
-            'limit'=>5,
+            'limit'=>5000,
             'query_string'=>'page',
             'controller'=>'user',
             'action'=>'index',

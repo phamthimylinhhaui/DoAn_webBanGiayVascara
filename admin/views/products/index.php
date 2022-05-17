@@ -21,7 +21,7 @@
 </div>
 <!-- End alert -->
 
-<table class="table users-table table-hover" id="list-users">
+<table class="table users-table table-hover" id="list-products">
     <thead>
     <tr>
         <th>
@@ -43,10 +43,6 @@
         <th>
             Số lượng
         </th>
-        <th>
-            Mô tả
-        </th>
-
         <th>
             Tùy chọn
         </th>
@@ -72,11 +68,11 @@
                     echo $product['avatar'];?>" class="avatar">
             </td>
 
-            <td>
+            <td >
                 <?php echo $product['category_name'];?>
             </td>
 
-            <td>
+            <td style="width: 200px;">
                 <?php echo $product['name'];?>
             </td>
 
@@ -91,13 +87,9 @@
                 <?php echo $product['amount'];?>
             </td>
 
-            <td>
-                <?php echo $product['description'];?>
-            </td>
 
 
-
-            <td class="row" >
+            <td class="row" style="width: 200px;" >
                 <a type="button" class="btn btn-info" href="index.php?controller=product&action=detail&id=<?php echo $product['id']?>">
                     Chi tiết
                 </a>
@@ -119,15 +111,18 @@
 
     </tbody>
 </table>
-<!-- Modal for show-form-edit-user -->
-<div class="modal fade" id="edit-user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content edit-user">
+<!--datatable-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script>
+<?php include "views/products/script.php"?>
+<script>
+    $(document).ready(function(){
+        // alert("Thành công",'success');
 
-        </div>
-    </div>
-</div>
-
+        initDatatable($('#list-products'),true);
+    });
+</script>
 
 
 

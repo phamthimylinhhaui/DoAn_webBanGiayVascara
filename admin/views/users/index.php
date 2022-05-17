@@ -117,7 +117,7 @@
 
             <td >
                 <!-- Button trigger modal for show-form-edit-user -->
-                <a type="button" class="btn btn-primary"   href="index.php?controller=user&action=edit&id=<?php echo $user['id'] ?>"
+                <a type="button" class="btn btn-info"   href="index.php?controller=user&action=edit&id=<?php echo $user['id'] ?>"
                 >
                     Sửa
                 </a>
@@ -132,9 +132,9 @@
         </tr>
 
     <?php }?>
-    <tr>
-        <td colspan="7" ><?php echo $pages; ?></td>
-    </tr>
+<!--    <tr>-->
+<!--        <td colspan="7" >--><?php //echo $pages; ?><!--</td>-->
+<!--    </tr>-->
 
     </tbody>
 </table>
@@ -143,6 +143,18 @@
 <?php
 require_once "views/users/script.php";
 ?>
+<!--datatable-->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/3.2.2/js/dataTables.fixedColumns.min.js"></script>
+<?php include "views/users/script.php"?>
+<script>
+    $(document).ready(function(){
+        // alert("Thành công",'success');
+
+        initDatatable($('#list-users'),true);
+    });
+</script>
 
 
 

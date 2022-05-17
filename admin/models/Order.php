@@ -7,14 +7,33 @@ class Order extends Model
     public $status;
 
     public function update($id){
+        $query='';
+
         $obj_update = $this->connection
-            ->prepare("UPDATE orders SET status=:status, updated_at=CURRENT_TIMESTAMP() WHERE id = $id");
-        $arr_update = [
-            ':status' => $this->status,
-        ];
+            ->prepare("UPDATE orders SET status=$this->status, updated_at=CURRENT_TIMESTAMP() WHERE id = $id");
 
+//        if ($this->status==2){
+//            //update lại số lượng có trong bảng sản phẩm
+//                //lấy ra các bản ghi trong bảng chi tiết sản phẩm
+//            $obj_select = $this->connection
+//                ->prepare("SELECT product_id AS PRODUCT_ID, quantity FROM  order_detail
+//          INNER JOIN orders ON order_detail.order_id = orders.id WHERE  orders.id = $id");
+//
+//            $obj_select->execute();
+//
+//            //$arr_product_update=[];
+//            $arr_product_update = $obj_select->fetchAll(PDO::FETCH_ASSOC);
+//            echo "<pre>";
+//            print_r($arr_product_update);
+//            echo "</pre>";
+//            die();
+//
+//
+//
+//            return $products;
+//        }
 
-        return $obj_update->execute($arr_update);
+        return $obj_update->execute();
     }
 
     public function getAll(){

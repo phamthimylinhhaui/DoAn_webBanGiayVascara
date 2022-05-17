@@ -10,8 +10,8 @@
     <?php require_once "views/users/css.php"?>
     <style>
         body{
-            font-family: "Times New Roman";
-            font-size: 18px;
+            font-family: "Times New Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 16px;
         }
     </style>
 </head>

@@ -1,7 +1,7 @@
 <!--Timeline items start -->
 <div class="timeline-items container" style="margin:30px auto; ">
     <h2>Giỏ hàng của bạn</h2>
-    <form action="" method="post">
+    <form action="index.php?controller=cart&action=update" method="post">
         <table class="table table-bordered">
             <tbody>
             <tr>
@@ -23,7 +23,7 @@
                              src="<?php echo $cart['avatar'] ?>"
                              width="80">
                         <div class="content-product">
-                            <a href="chi-tiet-san-pham/samsung-s9/<?php echo $product_id?>"
+                            <a href="index.php?controller=product&action=detail&id=<?php echo $product_id?>"
                                class="content-product-a">
                               <?php echo $cart['name']; ?>
                             </a>
@@ -32,7 +32,7 @@
                     <td>
                         <!--  cần khéo léo đặt name cho input số lượng, để khi xử lý submit form update lại giỏ hànTin nổi bậtg sẽ đơn giản hơn    -->
                         <input type="number" min="0"
-                               name="<?php echo $product_id; ?>"
+                               name="product_<?php echo $product_id;?> "
                                class="product-amount form-control"
                                value="<?php echo $cart['quantity']; ?>">
                     </td>
@@ -49,8 +49,7 @@
                     </td>
                     <td>
                         <a class="content-product-a"
-                           href="">
-<!--                            xoa-san-pham/<?php echo $product_id; ?>.html-->
+                           href="index.php?controller=cart&action=delete&id=<?php echo $product_id; ?>">
                             Xóa
                         </a>
                     </td>
