@@ -77,19 +77,19 @@ VALUES (:category_id, :name, :avatar,:price,:amount,:height,:type, :description,
     public function delete($id)
     {
         //để đảm bảo toàn vẹn dữ liệu, xóa các sản đơn hàng có sp này
-        $obj_delete_order = $this->connection
-            ->prepare("DELETE FROM order_detail WHERE product_id = $id");
-        $obj_delete_order->execute();
+//        $obj_delete_order = $this->connection
+//            ->prepare("DELETE FROM order_detail WHERE product_id = $id");
+//        $obj_delete_order->execute();
 
         $obj_delete = $this->connection
-            ->prepare("DELETE FROM products WHERE id = $id");
+            ->prepare("UPDATE products SET deleted_at=CURRENT_TIMESTAMP() WHERE id = $id");
         return $obj_delete->execute();
     }
 
     public function getAll(){
         $obj_select = $this->connection
             ->prepare("SELECT products.*, categories.name AS category_name FROM products 
-                        INNER JOIN categories ON categories.id = products.category_id ORDER BY created_at DESC");
+                        INNER JOIN categories ON categories.id = products.category_id WHERE products.deleted_at IS NULL ORDER BY created_at DESC ");
 
         $arr_select = [];
         $obj_select->execute($arr_select);

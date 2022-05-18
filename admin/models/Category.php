@@ -57,17 +57,17 @@ VALUES (:name, :description, :status,CURRENT_TIMESTAMP)";
     public function delete($id)
     {
         //để đảm bảo toàn vẹn dữ liệu, xóa các sản đơn hàng có sp này
-        $obj_delete_order = $this->connection
-            ->prepare("DELETE FROM order_detail WHERE product_id = $id");
-        $obj_delete_order->execute();
+//        $obj_delete_order = $this->connection
+//            ->prepare("DELETE FROM order_detail WHERE product_id = $id");
+//        $obj_delete_order->execute();
 
         //để đảm bảo toàn vẹn dữ liệu, sau khi xóa category thì cần xóa cả các product nào đang thuộc về category này
         $obj_delete_product = $this->connection
-            ->prepare("DELETE FROM products WHERE category_id = $id");
+            ->prepare("UPDATE products SET deleted_at=CURRENT_TIMESTAMP() WHERE category_id = $id");
         $obj_delete_product->execute();
 
         $obj_delete = $this->connection
-            ->prepare("DELETE FROM categories WHERE id = $id");
+            ->prepare("UPDATE categories SET deleted_at=CURRENT_TIMESTAMP() WHERE id = $id");
         $is_delete = $obj_delete->execute();
 
 
@@ -76,7 +76,7 @@ VALUES (:name, :description, :status,CURRENT_TIMESTAMP)";
 
     public function getAll(){
         $obj_select = $this->connection
-            ->prepare("SELECT * FROM categories ORDER BY id DESC ");
+            ->prepare("SELECT * FROM categories WHERE deleted_at IS NULL ORDER BY id DESC  ");
 
         $arr_select = [];
         $obj_select->execute($arr_select);

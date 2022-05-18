@@ -73,7 +73,7 @@ VALUES (:name, :avatar, :description, :status,CURRENT_TIMESTAMP)";
 
     public function getAll(){
         $obj_select = $this->connection
-            ->prepare("SELECT * FROM categories ");
+            ->prepare("SELECT * FROM categories where status=1 AND deleted_at IS NULL ");
 
         $arr_select = [];
         $obj_select->execute($arr_select);

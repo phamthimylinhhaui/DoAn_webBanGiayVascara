@@ -39,7 +39,7 @@
     <thead>
     <tr>
         <th>
-            ID
+            STT
         </th>
         <th>
             Ảnh đại diện

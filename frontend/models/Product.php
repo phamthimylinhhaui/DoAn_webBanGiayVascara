@@ -83,7 +83,7 @@ VALUES (:category_id, :name, :avatar,:price,:amount,:height,:type, :description,
 
     public function getAll(){
         $obj_select = $this->connection
-            ->prepare("SELECT * FROM products where amount > 0 ORDER BY created_at DESC LIMIT 8");
+            ->prepare("SELECT * FROM products where amount > 0 AND deleted_at IS NULL ORDER BY created_at DESC LIMIT 8");
 
         $arr_select = [];
         $obj_select->execute($arr_select);

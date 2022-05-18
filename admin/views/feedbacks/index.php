@@ -22,7 +22,7 @@
     <thead>
     <tr>
         <th>
-            ID
+            STT
         </th>
         <th>
             Tên người phản hồi

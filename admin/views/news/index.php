@@ -24,7 +24,7 @@
     <thead>
     <tr>
         <th>
-            ID
+            STT
         </th>
         <th>
             Tiêu đề
