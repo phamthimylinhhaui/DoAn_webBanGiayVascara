@@ -4,7 +4,7 @@
         Mã đơn hàng của bạn: <b><?php echo $_SESSION['order_id']?></b>
     </p>
     <p>
-        Số tiền cần thanh toán: <b><?php echo number_format($_SESSION['price_total']) ?> VNĐ</b>
+        Số tiền cần thanh toán: <b><?php echo number_format($_SESSION['price_total']+25000) ?> VNĐ</b>
     </p>
     <div>
             Thông tin liên hệ trực tiếp với chúng tôi qua số điện thoại:

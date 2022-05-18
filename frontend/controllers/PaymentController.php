@@ -63,12 +63,16 @@ class PaymentController extends Controller
             $phone=$_POST['phone'];
             $note=$_POST['note'];
 
-            if (empty($full_name) || empty($address) || empty($phone) ){
-                $this->error="không được để trống tên người nhận, địa chỉ , số điện thoại";
-            }
-            if (!is_numeric($phone)){
+            if (empty($full_name) ){
+                $this->error="không được để trống tên người nhận";
+            }elseif (empty($address) || empty($phone)){
+                $this->error="Không được để trống địa chỉ, số điện thoại";
+            }elseif (!is_numeric($phone)){
                 $this->error="Nhập đúng định dạng số điện thoại";
+            }elseif (strlen($phone)!=10){
+                $this->error="Nhập đúng định dạng số điện thoại (10 số)";
             }
+
 
             if (empty($this->error)){
                 //lưu vào csdl

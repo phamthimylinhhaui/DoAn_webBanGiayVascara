@@ -87,8 +87,18 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
 
     public function delete($id)
     {
+//        $id_order=$this->connection->prepare("SELECT ID FROM orders WHERE user_id=$id")->fetchAll(PDO::FETCH_ASSOC);
+//        echo "<pre>";
+//        print_r($id_order);
+//        echo "<pre>";
+//        die();
+        //để đảm bảo toàn vẹn dữ liệu, xóa các đơn hàng có người dùng này đặt
+//        $obj_delete_order = $this->connection
+//            ->prepare("DELETE FROM orders WHERE user_id = $id");
+//        $obj_delete_order->execute();
+
         $obj_delete = $this->connection
-            ->prepare("DELETE FROM users WHERE id = $id");
+            ->prepare("UPDATE users SET deleted_at= CURRENT_TIMESTAMP() WHERE id = $id");
         return $obj_delete->execute();
     }
 
@@ -128,7 +138,7 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
 
         // tạo câu truy vấn
         // gán chuỗi search nếu có thêm câu truy vấn
-        $sql_select_all="SELECT * FROM users $str_search ";
+        $sql_select_all="SELECT * FROM users WHERE deleted_at IS NULL";
 
         // chuẩn bị đối tượng truy vấn
         $obj_select_all=$this->connection->prepare($sql_select_all);
@@ -136,6 +146,16 @@ VALUES (:username, :password, :role, :date_of_birth, :name, :email, :avatar, :ph
         $users=$obj_select_all->fetchAll(PDO::FETCH_ASSOC);
 
         return $users;
+    }
+    public function getAll1(){
+        $obj_select = $this->connection
+            ->prepare("SELECT * FROM users WHERE deleted_at IS NULL ORDER BY id DESC ");
+
+        $arr_select = [];
+        $obj_select->execute($arr_select);
+        $orders = $obj_select->fetchAll(PDO::FETCH_ASSOC);
+
+        return $orders;
     }
 
     public function getAllPagination($params = []){

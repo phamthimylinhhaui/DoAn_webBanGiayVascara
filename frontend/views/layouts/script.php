@@ -11,3 +11,5 @@
 <!--my script-->
 <script src="assets/js/script.js"></script>
 
+<!-- jQuery -->
+<script src="assets/js/jquery-3.5.0.min.js"></script>

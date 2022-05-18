@@ -73,12 +73,15 @@
             {
                 switch ($order['status']) {
                     case 0:
-                        $status = 'đang giao';
+                        $status = 'chuẩn bị hàng';
                         break;
                     case 1:
-                        $status = 'đã giao';
+                        $status = 'đang giao';
                         break;
                     case 2:
+                        $status = 'đã giao';
+                        break;
+                    case 3:
                         $status = 'hủy đơn';
                         break;
                 }

@@ -99,7 +99,7 @@
                 </a>
 
                 <a type="button" class="btn btn-danger" href="index.php?controller=product&action=delete&id=<?php echo $product['id'] ?>" title="Xóa"
-                   onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này')">
+                   onclick="return confirm('Xóa sản phẩm này thì các đơn hàng có sản phẩm này cũng sẽ bị xóa.Bạn có chắc chắn muốn xóa không')">
                     Xóa
                 </a>
 

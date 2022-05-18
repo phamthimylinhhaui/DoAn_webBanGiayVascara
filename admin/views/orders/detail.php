@@ -55,12 +55,15 @@
                                   if (isset($order['status'])) {
                                       switch ($order['status']) {
                                           case 0:
-                                              echo 'đang giao';
+                                              echo 'chuẩn bị hàng';
                                               break;
                                           case 1:
-                                              echo 'đã giao';
+                                              echo 'đang giao';
                                               break;
                                           case 2:
+                                              echo 'đã giao';
+                                              break;
+                                          case 3:
                                               echo 'hủy đơn';
                                               break;
                                       }

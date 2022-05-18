@@ -17,6 +17,10 @@ class AuthController extends Controller
 
             if (empty($username) || empty($password)) {
                 $this->error = "Phải nhập username hoặc password";
+            }elseif (strlen($username)<4){
+                $this->error="Tên đăng nhập phải có >=4 ký tự";
+            }elseif (strlen($password)<6){
+                $this->error="Mật khẩu phải >= 6 ký tự";
             }
 
             if (empty($this->error)){
@@ -72,6 +76,10 @@ class AuthController extends Controller
                 $this->error="Phải nhập username hoặc password";
             }elseif ($password != $password_confirm){
                 $this->error="Nhập lại password chưa đúng";
+            }elseif (strlen($username)<4){
+                $this->error="Tên đăng nhập phải có >=4 ký tự";
+            }elseif (strlen($password)<6){
+                $this->error="Mật khẩu phải >= 6 ký tự";
             }
 
             // đăng ký user
@@ -84,7 +92,7 @@ class AuthController extends Controller
                 // cần check trùng username
                 $user = $user_model->getUserByUsername($username);
                 if (!empty($user)) {
-                    $_SESSION['error'] = "Username $username đã tồn tại, ko thể đăng ký";
+                    $_SESSION['error'] = "Username $username đã tồn tại, không thể đăng ký";
                     header("Location: index.php?controller=auth&action=register");
                     exit();
                 }

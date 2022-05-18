@@ -124,7 +124,7 @@
 
 
                 <a type="button" class="btn btn-danger" href="index.php?controller=user&action=delete&id=<?php echo $user['id'] ?>" title="Xóa"
-                   onclick="return confirm('Bạn có chắc chắn muốn xóa bản ghi này')">
+                   onclick="return confirm('Bạn có chắc chắn muốn xóa không')">
                     Xóa
                 </a>
 

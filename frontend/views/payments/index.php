@@ -21,7 +21,7 @@ require_once 'helpers/Helper.php';
                 </div>
                 <div class="form-group">
                     <label>Ghi chú thêm</label>
-                    <textarea name="note" class="form-control"></textarea>
+                    <textarea name="note" class="form-control"  placeholder="Vui lòng ghi lại số size của giày"></textarea>
                 </div>
                 <div class="form-group">
                     <label>Chọn phương thức thanh toán</label> <br />
@@ -80,10 +80,13 @@ require_once 'helpers/Helper.php';
                           </tr>
                       <?php endforeach; ?>
                       <tr>
+                          <td colspan="5">Phí ship toàn quốc: <span>25.000</span> VNĐ</td>
+                      </tr>
+                      <tr>
                           <td colspan="5" class="product-total">
                               Tổng giá trị đơn hàng:
                               <span class="product-price">
-                                <?php echo number_format($total, 0, '.', '.') ?> vnđ
+                                <?php echo number_format($total+25000, 0, '.', '.') ?> vnđ
                             </span>
                           </td>
                       </tr>
