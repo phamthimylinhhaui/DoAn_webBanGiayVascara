@@ -46,16 +46,28 @@ class OrderController extends Controller
 
         $id = $_GET['id'];
         $order_model = new Order();
+        // lấy ra order theo id để show dl
         $order = $order_model->getById($id);
 
-        if (isset($_POST['submit'])) {
+// xử lý logic đơn hàng đã giao, hủy đơn k được sửa
+        // lấy ra trạng thái của đơn hàng
+        $status_order=$order_model->getStatus($id);
+//        echo "<pre>";
+//        print_r($status_order);
+//        echo "</pre>";
+//        die();
+        if ($status_order['status']==2 || $status_order['status']==3 ){
+            $_SESSION['error'] = 'Bạn không được sửa trạng thái đơn hàng "đã giao" hoặc "hủy đơn"!';
+            header("Location:index.php?controller=order&action=index");
+            exit();
+        }
 
+//xử lý update trạng thái
+        if (isset($_POST['submit'])) {
             $status = $_POST['status'];
 
-
-            //save dữ liệu vào bảng products
+            //save dữ liệu đầu vào, vào bảng products
             $order_model->status = $status;
-
 
             $is_update = $order_model->update($id);
             if ($is_update) {

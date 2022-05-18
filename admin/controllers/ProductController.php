@@ -58,6 +58,12 @@ class ProductController extends Controller
             }
 
             //nếu ko có lỗi thì tiến hành save dữ liệu
+
+//            echo "<pre>";
+//            print_r($_FILES);
+//            echo "</pre>";
+//            die();
+
             if (empty($this->error)) {
                 $filename = $product['avatar'];
                 //xử lý upload file nếu có
@@ -76,8 +82,12 @@ class ProductController extends Controller
                 $product_model->category_id = $category_id;
                 $product_model->name = $name;
 
-                $avatar="http://localhost/DoAn/publish/avatar_product/".$filename;
-                $product_model->avatar = $avatar;
+
+                    $avatar1="http://localhost/DoAn/publish/avatar_product/".$filename;
+
+
+
+                $product_model->avatar = $avatar1;
 
                 $product_model->price = $price;
                 $product_model->amount = $amount;

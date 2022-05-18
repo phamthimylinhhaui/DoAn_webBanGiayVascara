@@ -24,7 +24,7 @@
                             <label class="col-md-12">Ảnh đại diện</label>
                             <img id="output" class="img-rounded avatar-create" width="200" height="200" src="<?php if (!empty($product['avatar'])) echo $product['avatar'] ?>" alt="Ảnh"  style="display:block; margin:0 auto"/>
                             <p class="text-center"><label for="ufile" style="cursor:pointer;"><i class="fas fa-upload"></i> Chọn file ảnh</label></p>
-                            <input name="avatar" id="ufile" type="file" class="input-avatar-create" style="display:none;" onchange="loadFile(event)" value="<?php if (!empty($product['avatar'])) echo $product['avatar'] ?> />
+                            <input name="avatar" id="ufile" type="file" class="input-avatar-create" style="display:none;" onchange="loadFile(event)" value="<?php echo isset($_POST['avatar']) ? $_POST['avatar'] : $product['avatar']; ?>" />
                         </div>
                         <div class="form-group">
                             <label>Giá bán</label>

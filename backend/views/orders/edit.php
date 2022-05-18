@@ -30,9 +30,10 @@
                             <label for="category_id">Trạng thái</label>
                             <select name="status" class="form-control" id="category_id">
 
-                                    <option value="0">đang giao </option>
-                                    <option value="1">đã giao </option>
-                                    <option value="2">hủy đơn </option>
+                                    <option value="0">chuẩn bị hàng </option>
+                                    <option value="1">đang giao </option>
+                                    <option value="2">đã giao </option>
+                                    <option value="3">hủy đơn </option>
                             </select>
                         </div>
 
