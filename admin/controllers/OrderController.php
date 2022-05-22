@@ -30,7 +30,7 @@ class OrderController extends Controller
 //        echo "</pre>";
 //        die();
 
-        $this->title="chi tiết sản phẩm";
+        $this->title="chi tiết đơn hàng";
         $this->content = $this->render('views/orders/detail.php',  [
             'order' => $order,
             'orderdetails' => $orderdetails,

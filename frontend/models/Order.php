@@ -25,6 +25,17 @@ class Order extends Model
         return $total;
     }
 
+    public function getById($id)
+    {
+        $obj_select = $this->connection
+            ->prepare("SELECT orders.*, users.username AS username FROM orders 
+          INNER JOIN users ON orders.user_id = users.id WHERE orders.id = $id");
+
+        $obj_select->execute();
+
+        return $obj_select->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function insert() {
         $this->user_id=$_SESSION['user']['id'];
 
@@ -78,6 +89,16 @@ class Order extends Model
     public function getAll(){
         $obj_select = $this->connection
             ->prepare("SELECT * FROM orders ");
+
+        $arr_select = [];
+        $obj_select->execute($arr_select);
+        $orders = $obj_select->fetchAll(PDO::FETCH_ASSOC);
+
+        return $orders;
+    }
+    public function getAllByUser($id_user){
+        $obj_select = $this->connection
+            ->prepare("SELECT * FROM orders WHERE user_id=$id_user");
 
         $arr_select = [];
         $obj_select->execute($arr_select);

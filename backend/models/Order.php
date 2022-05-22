@@ -88,7 +88,7 @@ class Order extends Model
 
     public function getAll(){
         $obj_select = $this->connection
-            ->prepare("SELECT * FROM orders ");
+            ->prepare("SELECT * FROM orders ORDER BY id DESC ");
 
         $arr_select = [];
         $obj_select->execute($arr_select);

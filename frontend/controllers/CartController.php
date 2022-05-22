@@ -1,5 +1,6 @@
 <?php
 require_once "controllers/Controller.php";
+require_once "models/Order.php";
 
 class CartController extends Controller
 {
@@ -111,4 +112,6 @@ class CartController extends Controller
         print_r($_SESSION['cart']);
         echo "</pre>";
     }
+
+
 }

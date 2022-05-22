@@ -60,7 +60,7 @@
                     <form  action="" method="POST">
 
                         <div class="form-group">
-                            <label class="control-label">Email</label>
+                            <label class="control-label">Tên đăng nhập</label>
                             <input name="username" class="form-control" type="text" placeholder="Nhập tên tài khoản">
                         </div>
                         <div class="form-group mb-4">

@@ -96,7 +96,7 @@ VALUES (:category_id, :name, :avatar,:price,:amount,:height,:type, :description,
         $obj_select = $this->connection
             ->prepare("SELECT products.*, categories.name AS category_name FROM products 
                         INNER JOIN categories ON categories.id = products.category_id
-                        WHERE category_id=$category_id");
+                        WHERE category_id=$category_id and products.deleted_at IS NULL");
 
         $arr_select = [];
         $obj_select->execute($arr_select);

@@ -382,5 +382,14 @@
 </a>
 <!--end footer-->
     <?php require_once "views/layouts/script.php";?>
+<script>
+    function alert(message, type='info', detail ){
+        Swal.fire(
+            message,
+            detail,
+            type
+        )
+    }
+</script>
 </body>
 </html>

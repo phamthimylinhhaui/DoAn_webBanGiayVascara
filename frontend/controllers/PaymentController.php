@@ -14,6 +14,8 @@ class PaymentController extends Controller
         $controller=$_GET['controller'];
         if (!isset($_SESSION['user']) && $controller != 'auth'){
             $_SESSION['error']="Bạn chưa đăng nhập";
+            $_SESSION['alert']="Nếu chưa có tài khoản, vui lòng đăng ký";
+            echo "<script>alert('hello world')</script>";
             header("Location: index.php?controller=auth&action=login");
             exit();
         }
@@ -110,5 +112,39 @@ class PaymentController extends Controller
         $this->title="Cảm ơn";
 
         require_once "views/layouts/main.php";
+    }
+
+    public function list_order(){
+        $id=$_SESSION['user']['id'];
+        $order_model = new Order();
+        $orders = $order_model->getAllByUser($id);
+
+        $this->title="Quản lý hóa đơn";
+        $this->content = $this->render('views/payments/list_order.php', [
+            'orders' => $orders,
+        ]);
+        require_once 'views/layouts/main.php';
+    }
+
+    public function detail(){
+
+        $id = $_GET['id'];
+        $order_model = new Order();
+        $order = $order_model->getById($id);
+
+        $orderDetail_model = new Orderdetail();
+        $orderdetails=$orderDetail_model->getByIdOrder($id);
+
+//        echo "<pre>";
+//        print_r($orderdetails);
+//        echo "</pre>";
+//        die();
+
+        $this->title="chi tiết đơn hàng";
+        $this->content = $this->render('views/payments/detail_order.php',  [
+            'order' => $order,
+            'orderdetails' => $orderdetails,
+        ]);
+        require_once 'views/layouts/main.php';
     }
 }

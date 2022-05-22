@@ -67,7 +67,7 @@
             <tr>
                 <td colspan="5" class="product-payment">
                     <input type="submit" name="submit" value="Cập nhật lại giá" class="btn btn-primary">
-                    <a href="thanh-toan.html" class="btn btn-success" style="background: #F15B67;">Đến trang thanh toán</a>
+                    <a href="thanh-toan.html" class="btn btn-success" onclick= return alert("xóa người dùng thành công", "success"); style="background: #F15B67;">Đến trang thanh toán</a>
                 </td>
             </tr>
             </tbody>
@@ -75,3 +75,12 @@
     </form>
 </div>
 <!--Timeline items end -->
+<script>
+    function alert(message, type='info', detail ){
+        Swal.fire(
+            message,
+            detail,
+            type
+        )
+    }
+</script>

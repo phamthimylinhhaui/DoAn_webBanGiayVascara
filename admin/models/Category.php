@@ -76,7 +76,7 @@ VALUES (:name, :description, :status,CURRENT_TIMESTAMP)";
 
     public function getAll(){
         $obj_select = $this->connection
-            ->prepare("SELECT * FROM categories WHERE deleted_at IS NULL ORDER BY id DESC  ");
+            ->prepare("SELECT * FROM categories WHERE deleted_at IS NULL AND status=1 ORDER BY id DESC  ");
 
         $arr_select = [];
         $obj_select->execute($arr_select);

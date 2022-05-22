@@ -60,7 +60,7 @@
 
                         <div class="user-form-remind">
                             <p>
-                                Bạn chưa có tài khoản?<a href="index.php?controller=auth&action=register" style="color: #f15b67;">Đăng ký</a>
+                                Bạn chưa có tài khoản?<a href="index.php?controller=auth&action=register" style="color: #f15b67;">Đăng ký</a>tại đây
                             </p>
                         </div>
                     </div>
